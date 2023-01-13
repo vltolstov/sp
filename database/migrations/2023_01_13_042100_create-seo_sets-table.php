@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('seo_sets', function (Blueprint $table) {
             $table->id();
+            $table->integer('page_id')->unique()->nullable();
             $table->string('title', 70)->nullable();
             $table->string('description', 160)->nullable();
             $table->string('keywords', 255)->nullable();
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('seo_sets');
     }
 };

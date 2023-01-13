@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('parametr_sets', function (Blueprint $table) {
             $table->id();
-            $table->json('params');
+            $table->integer('page_id')->unique()->nullable();
+            $table->json('params')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('parametr_sets');
     }
 };

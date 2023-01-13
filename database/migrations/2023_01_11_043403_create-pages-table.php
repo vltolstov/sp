@@ -17,12 +17,6 @@ return new class extends Migration
             $table->id();
             $table->smallInteger('page_type_id')->unsigned()->default(1);
             $table->string('name', 50)->nullable();
-            $table->integer('slug_id')->unsigned();
-            $table->integer('image_id')->unsigned()->nullable();
-            $table->integer('category_id')->unsigned()->default(0);
-            $table->integer('seo_set_id')->unsigned()->nullable();
-            $table->integer('parametr_set_id')->unsigned()->nullable();
-            $table->integer('content_set_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('table');
     }
 };
