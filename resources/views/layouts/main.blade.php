@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<p>Тест</p>
+<p>{{$test}}</p>
 
 @vite('resources/js/app.js')
 

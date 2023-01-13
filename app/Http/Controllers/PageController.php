@@ -10,10 +10,10 @@ class PageController extends Controller
 
     public function index () {
 
-        $index = Page::find(1);
+        //$index = Page::find(1);
 
         return view('index', [
-
+            'test' => 'Тест'
         ]);
 
     }
