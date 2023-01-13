@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PageTypesController extends Controller
+class PageTypeController extends Controller
 {
     //
 }
