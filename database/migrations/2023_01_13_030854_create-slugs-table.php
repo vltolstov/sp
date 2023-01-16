@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('slugs', function (Blueprint $table) {
             $table->id();
             $table->integer('page_id')->unique()->nullable();
-            $table->string('slug', 100)->unique();
+            $table->string('urn', 100)->unique();
             $table->timestamps();
         });
     }

@@ -88,7 +88,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('slugs')->insert([
             'page_id' => 1,
-            'slug' => 'index',
+            'urn' => 'index',
         ]);
 
         DB::table('seo_sets')->insert([
