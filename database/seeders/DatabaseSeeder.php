@@ -81,6 +81,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'project',
         ]);
 
+
+
         DB::table('pages')->insert([
             'page_type_id' => 1,
             'name' => 'Главная',
@@ -113,6 +115,47 @@ class DatabaseSeeder extends Seeder
 
         DB::table('parametr_sets')->insert([
             'page_id' => 1,
+            'params' => NULL,
+        ]);
+
+
+
+        DB::table('pages')->insert([
+            'page_type_id' => 1,
+            'name' => 'Каталог',
+        ]);
+
+        DB::table('slugs')->insert([
+            'page_id' => 2,
+            'urn' => 'katalog',
+        ]);
+
+        DB::table('categories')->insert([
+            'page_id' => 2,
+        ]);
+
+        DB::table('seo_sets')->insert([
+            'page_id' => 2,
+            'title' => 'Заголовок каталога',
+            'description' => 'Описание каталога',
+            'keywords' => 'ключевые, слова',
+            'priority' => '0.5',
+            'changefreq' => 'weekly',
+        ]);
+
+        DB::table('images')->insert([
+            'page_id' => 2,
+            'image' => NULL,
+        ]);
+
+        DB::table('content_sets')->insert([
+            'page_id' => 2,
+            'introtext' => 'Интро каталога',
+            'content' => 'Контент каталога',
+        ]);
+
+        DB::table('parametr_sets')->insert([
+            'page_id' => 2,
             'params' => NULL,
         ]);
 

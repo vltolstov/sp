@@ -39,4 +39,9 @@ class Page extends Model
         return$this->hasOne(ContentSet::class);
     }
 
+    public function category()
+    {
+        return$this->hasOne(ContentSet::class);
+    }
+
 }
