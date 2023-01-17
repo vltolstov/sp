@@ -20,3 +20,5 @@ Route::get('/', [PageController::class, 'index'])
 
 Route::get('/sitemap.xml', [SiteMapController::class, 'sitemap']);
 
+Route::get('/{slug}', [PageController::class, 'page']);
+
