@@ -4,7 +4,7 @@
 <head>
 
     <base href="{{$baseUrl}}">
-    <title>Тест</title>
+    <title>{{$title}}</title>
 
     @vite('resources/css/app.css')
 
@@ -12,8 +12,6 @@
 
 </head>
 <body>
-
-<p>{{$test}}</p>
 
 @vite('resources/js/app.js')
 
