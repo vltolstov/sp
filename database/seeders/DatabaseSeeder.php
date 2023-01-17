@@ -86,6 +86,7 @@ class DatabaseSeeder extends Seeder
         DB::table('pages')->insert([
             'page_type_id' => 1,
             'name' => 'Главная',
+            'parent_id' => 0,
         ]);
 
         DB::table('slugs')->insert([
@@ -123,6 +124,7 @@ class DatabaseSeeder extends Seeder
         DB::table('pages')->insert([
             'page_type_id' => 1,
             'name' => 'Каталог',
+            'parent_id' => 0,
         ]);
 
         DB::table('slugs')->insert([
