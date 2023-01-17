@@ -161,5 +161,43 @@ class DatabaseSeeder extends Seeder
             'params' => NULL,
         ]);
 
+
+
+        DB::table('pages')->insert([
+            'page_type_id' => 2,
+            'name' => 'Продукт',
+            'parent_id' => 2,
+        ]);
+
+        DB::table('slugs')->insert([
+            'page_id' => 3,
+            'urn' => 'product',
+        ]);
+
+        DB::table('seo_sets')->insert([
+            'page_id' => 3,
+            'title' => 'Заголовок продукта',
+            'description' => 'Описание продукта',
+            'keywords' => 'продукт',
+            'priority' => '0.5',
+            'changefreq' => 'weekly',
+        ]);
+
+        DB::table('images')->insert([
+            'page_id' => 3,
+            'image' => NULL,
+        ]);
+
+        DB::table('content_sets')->insert([
+            'page_id' => 3,
+            'introtext' => 'Интро продукта',
+            'content' => 'Контент продукта',
+        ]);
+
+        DB::table('parametr_sets')->insert([
+            'page_id' => 3,
+            'params' => NULL,
+        ]);
+
     }
 }
