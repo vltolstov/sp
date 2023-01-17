@@ -35,16 +35,30 @@ class PageController extends Controller
             ->join('content_sets', 'pages.id','=','content_sets.page_id')
             ->join('images', 'pages.id','=','images.page_id')
             ->join('parametr_sets', 'pages.id','=','parametr_sets.page_id')
-            ->join('categories', 'pages.id', '=', 'categories.page_id')
+            ->leftJoin('categories', 'pages.id', '=', 'categories.page_id')
             ->select('*','categories.id as category_id')
             ->where('urn', $slug)
             ->first();
 
         if($page == null) return abort(404);
 
-        return view('pages.test', [
+        $data = [
             'title' => $page->title,
-        ]);
+        ];
+
+        //тут подготовительные этапы
+        //
+
+        if($page->category_id){
+            return view('pages.category', $data);
+        }
+
+        if($page->page_type_id){
+            $types = PageType::where('id', $page->page_type_id)->first();
+            return view('pages.'.$types->name, $data);
+        }
+
+        return view('pages.default', $data);
 
     }
 
