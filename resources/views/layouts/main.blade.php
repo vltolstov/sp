@@ -25,6 +25,10 @@
 
     <link rel="canonical" href="{{$baseUrl}}/{{$urn}}"/>
 
+    <link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+
 </head>
 <body>
 
