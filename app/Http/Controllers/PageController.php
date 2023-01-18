@@ -43,11 +43,16 @@ class PageController extends Controller
         if($page == null) return abort(404);
 
         $data = [
+            'name' => $page->name,
             'title' => $page->title,
+            'description' => $page->description,
+            'introtext' => $page->introtext,
+            'slug' => $page->urn,
+            'keywords' => $page->keywords,
+            'images' => $page->image,
+            'content' => $page->content,
+            'params' => $page->params,
         ];
-
-        //тут подготовительные этапы
-        //
 
         if($page->category_id){
             return view('pages.category', $data);
@@ -55,7 +60,7 @@ class PageController extends Controller
 
         if($page->page_type_id){
             $types = PageType::where('id', $page->page_type_id)->first();
-            return view('pages.'.$types->name, $data);
+            return view('pages.' . $types->name, $data);
         }
 
         return view('pages.default', $data);
