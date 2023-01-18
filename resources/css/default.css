@@ -1,143 +1,29 @@
-/* fading pages */
-
-@-webkit-keyframes fade-in {
-    0% {
-        opacity: 0.1;
-    }
-    100% {
-        opacity: 1;
-    }
+@font-face {
+    font-family:'MontserratL';
+    src: url('/public/fonts/Montserrat-Light.woff') format('woff'),
+    url('/public/fonts/Montserrat-Light.ttf')  format('truetype');
+    font-display: swap;
 }
 
-@-moz-keyframes fade-in {
-    0% {
-        opacity: 0.1;
-    }
-    100% {
-        opacity: 1;
-    }
+@font-face {
+    font-family:'MontserratM';
+    src: url('/public/fonts/Montserrat-Medium.woff') format('woff'),
+    url('/public/fonts/Montserrat-Medium.ttf')  format('truetype');
+    font-display: swap;
 }
 
-@-o-keyframes fade-in {
-    0% {
-        opacity: 0.1;
-    }
-    100% {
-        opacity: 1;
-    }
+@font-face {
+    font-family:'MontserratR';
+    src: url('/public/fonts/Montserrat-Regular.woff') format('woff'),
+    url('/public/fonts/Montserrat-Regular.ttf')  format('truetype');
+    font-display: swap;
 }
-
-@keyframes fade-in {
-    0% {
-        opacity: 0.1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    font-size: 100%;
-
-}
-
-input::-webkit-input-placeholder {
-    color: #6d6d6d;
-    opacity: 1;
-    transition: opacity 0.2s ease;
-}
-
-input::-moz-placeholder {
-    color: #6d6d6d;
-    opacity: 1;
-    transition: opacity 0.2s ease;
-}
-
-input:-moz-placeholder {
-    color: #6d6d6d;
-    opacity: 1;
-    transition: opacity 0.2s ease;
-}
-
-input:-ms-input-placeholder {
-    color: #6d6d6d;
-    opacity: 1;
-    transition: opacity 0.2s ease;
-}
-
-input:focus::-webkit-input-placeholder {
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-input:focus::-moz-placeholder {
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-input:focus:-moz-placeholder {
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-input:focus:-ms-input-placeholder {
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-textarea::-webkit-input-placeholder {
-    color: #6d6d6d;
-    opacity: 1;
-    transition: opacity 0.2s ease;
-}
-
-textarea::-moz-placeholder {
-    color: #6d6d6d;
-    opacity: 1;
-    transition: opacity 0.2s ease;
-}
-
-textarea:-moz-placeholder {
-    color: #6d6d6d;
-    opacity: 1;
-    transition: opacity 0.2s ease;
-}
-
-textarea:-ms-input-placeholder {
-    color: #6d6d6d;
-    opacity: 1;
-    transition: opacity 0.2s ease;
-}
-
-textarea:focus::-webkit-input-placeholder {
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-textarea:focus::-moz-placeholder {
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-textarea:focus:-moz-placeholder {
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-textarea:focus:-ms-input-placeholder {
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-/* fading pages */
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
     font-weight: normal;
-    font-family: 'Roboto', sans-serif;
+    font-family: sans-serif;
     font-weight: 300;
     color: #393939;
 }
@@ -145,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 p, th, td, li, dd, dt, ul, ol, blockquote, q, acronym, abbr, a, input, select, textarea {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: sans-serif;
     font-weight: 300;
     color: #393939;
     border: none;
