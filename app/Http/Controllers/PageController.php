@@ -47,7 +47,7 @@ class PageController extends Controller
             'title' => $page->title,
             'description' => $page->description,
             'introtext' => $page->introtext,
-            'slug' => $page->urn,
+            'urn' => $page->urn,
             'keywords' => $page->keywords,
             'images' => $page->image,
             'content' => $page->content,
