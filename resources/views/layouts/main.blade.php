@@ -16,10 +16,13 @@
     <meta property="og:description" content="{{$description}}">
     <meta property="og:type" content="website">
     <meta property="og:url" content= "{{$baseUrl}}/{{$urn}}">
-    <meta property="og:image" content="{{$baseUrl}}{{$images['1000x750']}}">
-    <meta property="og:image:width" content="1000">
-    <meta property="og:image:height" content="750">
-    <link rel="image_src" href="{{$baseUrl}}{{$images['1000x750']}}">
+
+    @if(isset($images))
+        <meta property="og:image" content="{{$baseUrl}}{{$images['1000x750']}}">
+        <meta property="og:image:width" content="1000">
+        <meta property="og:image:height" content="750">
+        <link rel="image_src" href="{{$baseUrl}}{{$images['1000x750']}}">
+    @endif
 
     @vite('resources/css/app.css')
 
@@ -31,6 +34,9 @@
 
 </head>
 <body>
+
+@section('test-layout')
+@show
 
 @vite('resources/js/app.js')
 

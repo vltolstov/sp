@@ -22,7 +22,13 @@ class PageController extends Controller
             ->first();
 
         return view('index', [
+            'name' => $page->name,
             'title' => $page->title,
+            'description' => $page->description,
+            'introtext' => $page->introtext,
+            'urn' => $page->urn,
+            'keywords' => $page->keywords,
+            'content' => $page->content,
         ]);
 
     }
@@ -49,7 +55,6 @@ class PageController extends Controller
             'introtext' => $page->introtext,
             'urn' => $page->urn,
             'keywords' => $page->keywords,
-            'images' => null,
             'content' => $page->content,
             'params' => $page->params,
         ];
