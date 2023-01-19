@@ -49,10 +49,15 @@ class PageController extends Controller
             'introtext' => $page->introtext,
             'urn' => $page->urn,
             'keywords' => $page->keywords,
-            'images' => $page->image,
+            'images' => null,
             'content' => $page->content,
             'params' => $page->params,
         ];
+
+        if($page->image){
+            $images = json_decode($page->image);
+            $data['images'] = (array)$images;
+        }
 
         if($page->category_id){
             return view('pages.category', $data);
