@@ -1,5 +1,66 @@
-@media (min-width: 1200px) {
+@media (min-width: 1500px) {
+    .head{
+        background: #f3f3f3;
+    }
+    .head-flex{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .logo{
+        padding: 20px 20px;
+    }
+    .head-menu{
+        padding: 0px 20px;
+    }
+    .head-menu ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .head-menu ul li {
+        list-style: none;
+    }
+    .head-menu ul li a {
+        display: inline-block;
+        font-family: MontserratL;
+        font-size: 16px;
+        padding: 44px 35px 45px 35px;
+        text-decoration: none;
+    }
+    .head-menu ul li a:hover {
+        background: #FFF;
+    }
 
+    .head-contacts{
+        padding: 17px 20px;
+    }
+    .head-contacts p {
+        text-align: right;
+    }
+    .main-tel {
+        font-family: MontserratM;
+        font-size: 16px;
+        text-transform: uppercase;
+        color:#e63c24;
+        text-decoration: none;
+    }
+    .mobile-tel {
+        font-family: MontserratM;
+        font-size: 12px;
+        text-decoration: none;
+    }
+    .head-mail {
+        display: inline-block;
+        font-family: MontserratM;
+        font-size: 12px;
+        text-decoration: none;
+        padding: 5px 0px 0px 0px;
+    }
+    .head-city {
+        font-family: MontserratM;
+        font-size: 12px;
+    }
 
 
 }
