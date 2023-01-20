@@ -61,6 +61,37 @@
         font-family: MontserratM;
         font-size: 12px;
     }
-
+    .offers {
+        background: #d7d7d8;
+    }
+    .offers-wrap {
+        padding: 10px 10px;
+    }
+    .offer {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        background-position: 0px 0px;
+        background-size: 220px;
+        background-repeat: no-repeat;
+        text-decoration: none;
+        padding: 0px 0px 0px 253px;
+        height: 165px;
+        background-color: #FFF;
+        margin: 10px;
+    }
+    .offer-title {
+        font-family: MontserratM;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding-top: 20px;
+    }
+    .offer-price {
+        font-family: MontserratM;
+        font-size: 16px;
+        text-transform: uppercase;
+        color: #e63c24;
+        padding-bottom: 20px;
+    }
 
 }

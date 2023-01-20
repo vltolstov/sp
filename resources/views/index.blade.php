@@ -42,8 +42,25 @@
 
 <div class="offers">
     <div class="container">
-        <div class="row">
-            офферы
+        <div class="row offers-wrap">
+            <div class="col-lg-4">
+                <a href="#" class="offer" style="background-image: url('/images/test-1000x750.png')">
+                    <p class="offer-title">Длинное название для проверки на несколько строк и много символов</p>
+                    <p class="offer-price">0000000 руб.</p>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <a href="#" class="offer" style="background-image: url('/images/test-1000x750.png')">
+                    <p class="offer-title">Длинное название для проверки на несколько строк и много символов</p>
+                    <p class="offer-price">0000000 руб.</p>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <a href="#" class="offer" style="background-image: url('/images/test-1000x750.png')">
+                    <p class="offer-title">Длинное название для проверки на несколько строк и много символов</p>
+                    <p class="offer-price">0000000 руб.</p>
+                </a>
+            </div>
         </div>
     </div>
 </div>
