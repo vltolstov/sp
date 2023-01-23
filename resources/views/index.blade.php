@@ -30,6 +30,7 @@
         </header>
     </div>
 </div>
+
 <div class="slider">
     <div class="container">
         <div class="row">
@@ -42,7 +43,7 @@
 
 <div class="offers">
     <div class="container">
-        <div class="row offers-wrap">
+        <div class="row offers-wrap offers-wrap-close">
             <div class="col-lg-4">
                 <a href="#" class="offer" style="background-image: url('/images/test-1000x750.png')">
                     <p class="offer-title">Длинное название для проверки на несколько строк и много символов</p>
@@ -60,6 +61,129 @@
                     <p class="offer-title">Длинное название для проверки на несколько строк и много символов</p>
                     <p class="offer-price">0000000 руб.</p>
                 </a>
+            </div>
+            <div class="col-lg-4">
+                <a href="#" class="offer" style="background-image: url('/images/test-1000x750.png')">
+                    <p class="offer-title">Длинное название для проверки на несколько строк и много символов</p>
+                    <p class="offer-price">0000000 руб.</p>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <a href="#" class="offer" style="background-image: url('/images/test-1000x750.png')">
+                    <p class="offer-title">Длинное название для проверки на несколько строк и много символов</p>
+                    <p class="offer-price">0000000 руб.</p>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <a href="#" class="offer" style="background-image: url('/images/test-1000x750.png')">
+                    <p class="offer-title">Длинное название для проверки на несколько строк и много символов</p>
+                    <p class="offer-price">0000000 руб.</p>
+                </a>
+            </div>
+            <div class="offers-open-button">
+                <a class="offers-link" href="#">Показать еще</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="map">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                карта
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="special-offer">
+    <div class="container">
+        <div class="row special-offer-wrap">
+            <div class="col-lg-12">
+                <div class="block-headers">
+                    <h3>Заголовок третьего уровня</h3>
+                    <p>Подзаголовок - однострочное описание</p>
+                </div>
+                <div class="row special-offer-flex">
+                    <div class="special-offer-info col-lg-4 order-3">
+                        <p class="special-offer-name">Заголовок продукта на несколько строк</p>
+                        <p class="special-offer-price">000000 руб.<br><span>в наличии</span></p>
+                    </div>
+                    <div class="special-offer-text col-lg-4 order-2">
+                        <p>Повседневная практика показывает, что консультация с широким активом способствует подготовки
+                            и реализации дальнейших направлений развития.</p>
+                        <p>Идейные соображения высшего порядка, а также
+                            постоянное информационно-пропагандистское обеспечение нашей деятельности играет важную роль
+                            в формировании существенных финансовых и административных условий.</p>
+                    </div>
+                    <div class="special-offer-image col-lg-4 order-1">
+                        <img src="/images/test-1000x750.png" alt=" ">
+                    </div>
+                </div>
+                <div class="special-offer-button">
+                    <a href="#">Кнопка заказа / запроса информации</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="catalog">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                каталог
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="advantages">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                преимущества
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="news">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                новости
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                о компании
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="consultation">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                консультация
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                контакты - подвал
             </div>
         </div>
     </div>
