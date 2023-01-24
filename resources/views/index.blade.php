@@ -148,7 +148,7 @@
             </div>
             <div class="col-lg-7">
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="catalog-item">
                             <a href="#">
                                 <div class="catalog-icon">
@@ -158,7 +158,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="catalog-item">
                             <a href="#">
                                 <div class="catalog-icon">
@@ -168,7 +168,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="catalog-item">
                             <a href="#">
                                 <div class="catalog-icon">
@@ -178,7 +178,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="catalog-item">
                             <a href="#">
                                 <div class="catalog-icon">
@@ -188,7 +188,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="catalog-item">
                             <a href="#">
                                 <div class="catalog-icon">
@@ -198,7 +198,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="catalog-item">
                             <a href="#">
                                 <div class="catalog-icon">
@@ -208,7 +208,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="catalog-item">
                             <a href="#">
                                 <div class="catalog-icon">
@@ -218,7 +218,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="catalog-item">
                             <a href="#">
                                 <div class="catalog-icon">
@@ -236,9 +236,57 @@
 
 <div class="advantages">
     <div class="container">
-        <div class="row">
+        <div class="row advantages-wrap">
             <div class="col-lg-12">
-                преимущества
+                <div class="advantages-headers">
+                    <h3>Преимущества работы с нами</h3>
+                    <p>Подзаголовок - однострочное описание</p>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="row advantages-flex">
+                    <div class="col-lg-4">
+                        <div class="advantage">
+                            <div class="advantage-icon-wrap">
+                                <div class="advantage-icon">
+                                    <span>1</span>
+                                </div>
+                            </div>
+                            <div class="advantage-text-wrap">
+                                <h4>Заголовок</h4>
+                                <p>Повседневная практика показывает, что консультация с широким активом способствует подготовки
+                                    и реализации дальнейших направлений развития.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="advantage">
+                            <div class="advantage-icon-wrap">
+                                <div class="advantage-icon">
+                                    <span>2</span>
+                                </div>
+                            </div>
+                            <div class="advantage-text-wrap">
+                                <h4>Заголовок</h4>
+                                <p>Повседневная практика показывает, что консультация с широким активом способствует подготовки
+                                    и реализации дальнейших направлений развития.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="advantage">
+                            <div class="advantage-icon-wrap">
+                                <div class="advantage-icon">
+                                    <span>3</span>
+                                </div>
+                            </div>
+                            <div class="advantage-text-wrap">
+                                <h4>Заголовок</h4>
+                                <p>Повседневная практика показывает, что консультация с широки</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

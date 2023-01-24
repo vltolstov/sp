@@ -122,9 +122,12 @@
     .offers-open-button a:hover {
         background: #e63c24;
     }
+    .special-offer {
+        border-top:1px solid #f3f3f3;
+    }
     .special-offer-headers {
         background: #FFF;
-        padding-top: 50px;
+        padding-top: 65px;
     }
     .special-offer-headers h3 {
         font-family: MontserratL;
@@ -245,6 +248,9 @@
         text-align: center;
         padding: 16px 0px;
     }
+    .catalog-button a:hover {
+        background: #e63c24;
+    }
     .catalog-item {
         text-align: center;
         padding-top: 10px;
@@ -278,16 +284,79 @@
         -webkit-transition: all 0.3s ease;
         height: 103%;
     }
-
-    /*.catalog-item a img {*/
-    /*    object-fit: cover;*/
-    /*    border-radius: 100px;*/
-    /*    width: 80%;*/
-    /*    object-fit: cover;*/
-    /*    clip-path: circle(50%);*/
-    /*    padding: 10px 0px;*/
-    /*}*/
-    /*.catalog-item a {*/
-    /*}*/
+    .advantages {
+        border-top:1px solid #f3f3f3;
+    }
+    .advantages-flex {
+        display: flex;
+        align-items: stretch;
+    }
+    .advantages-wrap {
+        padding: 0px 125px 100px 125px;
+    }
+    .advantages-headers {
+        background: #FFF;
+        padding-top: 65px;
+    }
+    .advantages-headers h3 {
+        font-family: MontserratL;
+        font-size: 48px;
+        color: #e63c24;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    .advantages-headers p {
+        font-family: MontserratL;
+        font-size: 14px;
+        color: #7a7a7a;
+        text-align: center;
+        text-transform: uppercase;
+        padding-bottom: 50px;
+    }
+    .advantage {
+        height: 100%;
+        padding: 20px 20px 0px 20px;
+        position: relative;
+    }
+    .advantage-icon-wrap {
+        overflow: hidden;
+        position: absolute;
+        left: 33.33%;
+        width: 125px;
+        height: 125px;
+        margin: 0 auto;
+        border-radius: 50%;
+        border: 1px solid #e3e3e3;
+    }
+    .advantage-icon {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        margin-top: 12px;
+        background: #FFF;
+        border-radius: 50%;
+        border: 1px solid #e3e3e3;
+    }
+    .advantage-text-wrap {
+        height: 62%;
+        background: #f3f3f3;
+        border: 1px solid #e3e3e3;
+        margin: 63px 0px 20px 0px;
+        padding: 65px 0px 0px 0px;
+    }
+    .advantage-text-wrap h4 {
+        font-family: MontserratL;
+        font-size: 14px;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 30px 30px 50px 30px;
+    }
+    .advantage-text-wrap p {
+        font-family: MontserratL;
+        font-size: 14px;
+        text-align: center;
+        line-height: 24px;
+        padding: 0px 30px 80px 30px;
+    }
 
 }
