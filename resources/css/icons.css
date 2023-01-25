@@ -35,11 +35,6 @@
     font-size: 24px;
     padding-right: 25px;
 }
-
-.icon-edit:hover {
-    color: #2d3748;
-}
-
 .icon-copy:before {
     display: inline-block;
     content: "\e903";
@@ -47,11 +42,6 @@
     font-size: 24px;
     padding-right: 25px;
 }
-
-.icon-copy:hover {
-    color: #2d3748;
-}
-
 .icon-play:before {
     display: inline-block;
     content: "\e904";
@@ -59,7 +49,24 @@
     font-size: 24px;
     padding-right: 25px;
 }
-
-.icon-play:hover {
-    color: green;
+.icon-cost:before {
+    display: inline-block;
+    content: "\e905";
+    margin: 20px 0px 0px 13px;
+    font-size: 58px;
+    color: #e63c24;
+}
+.icon-service:before {
+    display: inline-block;
+    content: "\e906";
+    margin: 13px 0px 0px 17px;
+    font-size: 69px;
+    color: #e63c24;
+}
+.icon-guarantees:before {
+    display: inline-block;
+    content: "\e907";
+    margin: 15px 0px 0px 20px;
+    font-size: 70px;
+    color: #e63c24;
 }
