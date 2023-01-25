@@ -249,7 +249,7 @@
                         <div class="advantage">
                             <div class="advantage-icon-wrap">
                                 <div class="advantage-icon">
-                                    <span>1</span>
+                                    <span class="icon-cost"></span>
                                 </div>
                             </div>
                             <div class="advantage-text-wrap">
@@ -263,7 +263,7 @@
                         <div class="advantage">
                             <div class="advantage-icon-wrap">
                                 <div class="advantage-icon">
-                                    <span>2</span>
+                                    <span class="icon-service"></span>
                                 </div>
                             </div>
                             <div class="advantage-text-wrap">
@@ -277,7 +277,7 @@
                         <div class="advantage">
                             <div class="advantage-icon-wrap">
                                 <div class="advantage-icon">
-                                    <span>3</span>
+                                    <span class="icon-guarantees"></span>
                                 </div>
                             </div>
                             <div class="advantage-text-wrap">
