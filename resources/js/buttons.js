@@ -4,7 +4,7 @@ const offersLink = document.querySelector('.offers-link');
 
 function offersTrigger() {
     offersWrap.classList.remove('offers-wrap-close');
-    offersLink.remove();
+    offersOpenButton.remove();
 }
 
 offersOpenButton.addEventListener('click', offersTrigger);
