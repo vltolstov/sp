@@ -214,13 +214,16 @@
     .catalog-headers {
         padding: 0px 50px 0px 6px;
     }
-    .catalog-headers h3 {
+    .news-headers {
+        padding: 0px 0px 0px 6px;
+    }
+    .catalog-headers h3, .news-headers h3 {
         font-family: MontserratL;
         font-size: 48px;
         color: #080808;
         padding: 0px 0px 20px 0px;
     }
-    .catalog-headers p {
+    .catalog-headers p, .news-headers p {
         font-family: MontserratL;
         font-size: 14px;
         color: #7a7a7a;
@@ -414,10 +417,125 @@
         font-size: 18px;
         color: #FFF;
         text-decoration: none;
+        text-transform: uppercase;
         padding: 15px 45px;
     }
     .news-button a:hover {
         background: #e63c24;
     }
-
+    .about {
+        border-top:1px solid #f3f3f3;
+    }
+    .about-headers-wrap {
+        padding: 100px 115px 0px 115px;
+    }
+    .about-headers {
+        padding: 0px 0px 0px 6px;
+    }
+    .about-headers h3 {
+        font-family: MontserratL;
+        font-size: 48px;
+        color: #080808;
+        padding: 0px 0px 20px 0px;
+    }
+    .about-headers p {
+        font-family: MontserratL;
+        font-size: 14px;
+        color: #7a7a7a;
+        text-transform: uppercase;
+        padding: 0px 0px 0px 4px;
+    }
+    .about-wrap {
+        padding: 0px 125px 100px 125px;
+    }
+    .about-wrap p {
+        font-family: MontserratL;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 50px 20px 80px 0px;
+    }
+    .about-wrap h5 {
+        font-family: MontserratL;
+        font-size: 14px;
+        text-transform: uppercase;
+        color: #7a7a7a;
+    }
+    .about-wrap a {
+        display: inline-block;
+        background: #080808;
+        font-family: MontserratR;
+        font-size: 18px;
+        color: #FFF;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 15px 45px;
+    }
+    .about-wrap a:hover {
+        background: #e63c24;
+        color: #FFF;
+    }
+    .about-video {
+        padding: 0px 0px 0px 100px;
+    }
+    .presentation {
+        margin: 50px 0px;
+        border: 1px solid red;
+        width: 100%;
+        height: 400px;
+    }
+    .consultation {
+        background-color: #000;
+        background-image: url("/images/consultation-bg.jpg");
+        background-position: 0px 0px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-top:1px solid #f3f3f3;
+    }
+    .consultation-wrap {
+        padding: 60px 115px 60px 115px;
+    }
+    .consultation-flex {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .consultation-headers {
+        width: 60%;
+        padding: 0px 0px 0px 6px;
+    }
+    .consultation-headers h3 {
+        font-family: MontserratL;
+        font-size: 48px;
+        color: #FFF;
+        padding: 0px 0px 20px 0px;
+    }
+    .consultation-headers p {
+        font-family: MontserratL;
+        font-size: 14px;
+        color: #FFF;
+        padding:0px 50px 0px 4px;
+    }
+    .post-header {
+        font-family: MontserratL;
+        font-size: 14px;
+        color: #FFF;
+        text-transform: uppercase;
+        padding: 0px 0px 50px 4px !important;
+    }
+    .consultation-button a {
+        display: inline-block;
+        background: #e63c24;
+        font-family: MontserratR;
+        font-size: 18px;
+        color: #FFF;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 15px 45px;
+    }
+    .consultation-button a:hover {
+        background: #FFF;
+        color: #000;
+    }
 }

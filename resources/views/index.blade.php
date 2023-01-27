@@ -296,7 +296,7 @@
     <div class="container">
         <div class="row news-headers-wrap">
             <div class="col-lg-12">
-                <div class="catalog-headers">
+                <div class="news-headers">
                     <h3>Новости</h3>
                     <p>Самое важное</p>
                 </div>
@@ -360,9 +360,29 @@
 
 <div class="about">
     <div class="container">
-        <div class="row">
+        <div class="row about-headers-wrap">
             <div class="col-lg-12">
-                о компании
+                <div class="about-headers">
+                    <h3>О компании</h3>
+                    <p>работаем с 2000 года</p>
+                </div>
+            </div>
+        </div>
+        <div class="row about-wrap">
+            <div class="col-lg-4">
+                <p>Повседневная практика показывает, что консультация с широким активом способствует подготовки
+                    и реализации дальнейших направлений развития.</p>
+                <h5>проверено</h5>
+                <p>Повседневная практика показывает, что консультация с широким активом способствует подготовки
+                    и реализации дальнейших направлений развития.</p>
+                <a href="#">Подробнее</a>
+            </div>
+            <div class="col-lg-8">
+                <div class="about-video">
+                    <h5>Видеопрезентация</h5>
+                    <div class="presentation">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -370,9 +390,15 @@
 
 <div class="consultation">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                консультация
+        <div class="consultation-wrap consultation-flex">
+            <div class="consultation-headers">
+                <h3>Нужна консультация?</h3>
+                <p class="post-header">ответим на любые вопросы</p>
+                <p>Подробно расскажем о наших услугах, видах работ, и типовых проектах,
+                    рассчитаем стоимость и подготовим индивидуальное предложение!</p>
+            </div>
+            <div class="consultation-button">
+                <a href="#">Написать сообщение</a>
             </div>
         </div>
     </div>
