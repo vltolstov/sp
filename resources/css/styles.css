@@ -122,6 +122,62 @@
     .offers-open-button a:hover {
         background: #e63c24;
     }
+    .map {
+        background: #d7d7d8;
+        padding-bottom: 95px;
+    }
+    .map-header {
+        padding-top: 60px;
+        padding: 60px 20px 0px 20px;
+    }
+    .map-header h3 {
+        font-family: MontserratL;
+        font-size: 48px;
+        color: #000;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    .map-block {
+        width: 80%;
+        margin: 0 auto;
+        padding: 0px 20px 40px 20px;
+        padding-bottom: 40px;
+    }
+    .map-flex {
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 10px;
+    }
+    .map-project {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        height: 124px;
+        flex-grow: 1;
+        background-size: 165px;
+        background-position: 0px 0px;
+        background-repeat: no-repeat;
+        margin: 0px 10px;
+        -webkit-transition: all 0.3s ease;
+    }
+    .map-project p {
+        display: none;
+        position: absolute;
+        left: 185px;
+        text-align: center;
+        padding-right: 15px;
+    }
+    .map-project:hover {
+        flex-grow: 2 !important;
+        background-color: #FFF;
+        -webkit-transition: all 0.3s ease;
+    }
+    .map-project:hover p {
+        display: inline;
+    }
     .special-offer {
         border-top:1px solid #f3f3f3;
     }
