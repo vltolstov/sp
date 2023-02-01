@@ -161,6 +161,9 @@
         background-position: 0px 0px;
         background-repeat: no-repeat;
         margin: 0px 10px;
+        font-size: 12px;
+        font-family: MontserratR;
+        text-decoration: none;
         -webkit-transition: all 0.3s ease;
     }
     .map-project p {
