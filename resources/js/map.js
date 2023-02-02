@@ -27,6 +27,11 @@ function mapProcessing () {
 }
 
 function addCityColoring(cityName) {
+    let cities = svgDocument.getElementsByTagName('circle');
+    for (let item of cities) {
+        item.setAttribute("fill", "#fefefe");
+    }
+
     let city = svgDocument.getElementById(cityName);
     city.setAttribute("fill", "#e63c24");
     console.log('рисуем линию' + ' ' + id);
@@ -45,11 +50,4 @@ mapProjects.addEventListener('mouseover', function (event) {
     if(!cityName) return;
 
     addCityColoring(cityName);
-});
-
-mapProjects.addEventListener('mouseout', function (event) {z
-    let city = svgDocument.getElementsByTagName('circle');
-    for (let item of city) {
-        item.setAttribute("fill", "#fefefe");
-    }
 });
