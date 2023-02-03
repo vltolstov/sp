@@ -138,10 +138,8 @@
         padding-bottom: 20px;
     }
     .map-block {
-        width: 80%;
         margin: 0 auto;
-        padding: 0px 20px 40px 20px;
-        padding-bottom: 40px;
+        padding: 0px 0px 40px 0px;
     }
     .map-flex {
         display: flex;
@@ -167,6 +165,7 @@
         -webkit-transition: all 0.3s ease;
     }
     .map-project p {
+        font-family: MontserratR;
         display: none;
         position: absolute;
         left: 185px;
