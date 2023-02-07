@@ -10,6 +10,23 @@ let mapProjects = document.querySelector('.map-flex');
 let id = 0;
 let svgDocument = '';
 
+function mapDefaultState() {
+
+    let cities = svgDocument.getElementsByTagName('circle');
+    for (let item of cities) {
+        item.setAttribute("fill", "#fefefe");
+    }
+    let polygons = svgDocument.getElementsByTagName('polygon');
+    for(let polygon of polygons) {
+        polygon.setAttribute('visibility', 'hidden');
+    }
+    let texts = svgDocument.getElementsByTagName('text');
+    for(let text of texts) {
+        text.setAttribute('visibility', 'hidden');
+    }
+
+}
+
 function mapProcessing () {
 
     let mapObject = document.querySelector('.map-svg');
@@ -26,43 +43,41 @@ function mapProcessing () {
         let rf = svgDocument.getElementById('RF');
         rf.setAttribute("fill", "#9a9a9a");
 
-        let polygons = svgDocument.getElementsByTagName('polygon');
-        for(let polygon of polygons) {
-            polygon.setAttribute('visibility', 'hidden');
-        }
-
-        let texts = svgDocument.getElementsByTagName('text');
-        for(let text of texts) {
-            text.setAttribute('visibility', 'hidden');
-        }
+        mapDefaultState();
 
     }
 
 }
 
 function addGeoHighlight(cityName, x, y) {
-    let cities = svgDocument.getElementsByTagName('circle');
-    for (let item of cities) {
-        item.setAttribute("fill", "#fefefe");
-    }
+
+    mapDefaultState();
 
     let city = svgDocument.getElementById(cityName);
     city.setAttribute("fill", "#e63c24");
 
-    let polygon = svgDocument.getElementById(city + '-poly');
-    let text = svgDocument.getElementById(city + '-text');
+    let polygon = svgDocument.getElementById(cityName + '-poly');
+    let text = svgDocument.getElementById(cityName + '-text');
 
-    //polygon.setAttribute('fill', '#FFF');
-    //text.setAttribute('color', '#000');
+    if(polygon !== null && text !== null) {
+        polygon.setAttribute('fill', '#FFF');
+        polygon.setAttribute('visibility', 'visible');
+        text.setAttribute('color', '#000');
+        text.setAttribute('font-family', 'Sans-serif');
+        text.setAttribute('font-size', '12px');
+        text.setAttribute('visibility', 'visible');
+    }
 
-    console.log('рисуем линию' + ' ' + id + ' ' + x + ' ' + y);
+    let cordY = Number(city.getAttribute('cy')) + 10;
+
     let line = svgDocument.getElementById('line');
     line.setAttribute('stroke', '#FFF');
     line.setAttribute("stroke-width", 2);
     line.setAttribute("x1", city.getAttribute('cx'));
-    line.setAttribute("y1", city.getAttribute('cy'));
+    line.setAttribute("y1", cordY);
     line.setAttribute("x2", x);
     line.setAttribute("y2", y);
+
 }
 
 window.addEventListener('load', mapProcessing);
