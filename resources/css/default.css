@@ -1,27 +1,29 @@
 @font-face {
-    font-family:'MontserratL';
-    src: url('/public/fonts/Montserrat-Light.woff') format('woff'),
-    url('/public/fonts/Montserrat-Light.ttf')  format('truetype');
+    font-family:'FiraSansL';
+    src: url('/public/fonts/FiraSans-Light.woff') format('woff'),
+    url('/public/fonts/FiraSans-Light.ttf')  format('truetype');
     font-display: swap;
 }
 
 @font-face {
-    font-family:'MontserratM';
-    src: url('/public/fonts/Montserrat-Medium.woff') format('woff'),
-    url('/public/fonts/Montserrat-Medium.ttf')  format('truetype');
+    font-family:'FiraSansM';
+    src: url('/public/fonts/FiraSans-Medium.woff') format('woff'),
+    url('/public/fonts/FiraSans-Medium.ttf')  format('truetype');
     font-display: swap;
 }
 
-@font-face {
-    font-family:'MontserratR';
-    src: url('/public/fonts/Montserrat-Regular.woff') format('woff'),
-    url('/public/fonts/Montserrat-Regular.ttf')  format('truetype');
-    font-display: swap;
+html, body {
+    height: 100%;
 }
 
 body {
     padding: 0px;
     margin: 0px;
+}
+.wrapper {
+    min-height: 100%;
+    padding-bottom: 100px;
+    box-sizing: border-box;
 }
 
 h1, h2, h3, h4, h5, h6 {
