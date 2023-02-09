@@ -57,26 +57,170 @@
         color: #f1f1f1;
         background-color: #7f86b3;
     }
-    .main-block-flex {
-        display: flex;
-    }
     .sidebar {
-        align-self: stretch;
-        margin: 30px;
-        padding: 30px;
+        margin: 30px 30px 30px 0px;
+        padding: 30px 0px;
         border-radius: 15px;
         background: #f3f3f3;
-        flex-grow: 1;
+    }
+    .main-menu {
+        padding: 0px 20px;
+    }
+    .main-menu li {
+        padding: 0px 0px 0px 20px;
+        list-style: none;
+    }
+    .main-menu a {
+        display: inline-block;
+        width: 100%;
+        text-decoration: none;
+        padding: 12px 0px;
+    }
+    .main-menu a:hover {
+        text-decoration: underline;
+    }
+    .main-menu li ul, .main-menu li ul li ul {
+        display: none;
+        padding: 10px 0px 15px 0px;
+    }
+    .main-menu li:hover ul {
+        display: block;
     }
     .content-block {
-        align-self: stretch;
-        padding: 30px;
-        flex-grow: 3;
+        padding: 30px 0px 30px 0px;
+    }
+    .breadcrumbs {
+        padding: 30px 0px 20px 0px;
+    }
+    .content-header {
+        padding: 0px 0px 30px 0px;
+    }
+    .categories-block {
+        padding: 0px 0px 30px 0px;
+    }
+    .products-block {
+        padding: 0px 0px 30px 0px;
+    }
+    .content-block {
+        padding: 0px 0px 30px 0px;
+    }
+    .content-header h1 {
+        font-family: FiraSansL;
+        font-size: 36px;
+    }
+    .content-intro {
+        padding: 0px 0px 30px 0px;
+    }
+    .content-intro p {
+        font-family: FiraSansL;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .category-item {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background-position: 0px 0px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        text-decoration: none;
+        padding: 0px 0px 0px 123px;
+        height: 75px;
+        background-color: #fafafa;
+        border-radius: 15px;
+        margin: 10px;
+    }
+    .category-item:hover {
+        background-color: #7f86b3;
+    }
+    .category-item:hover p {
+        color: #fff;
+    }
+    .category-name {
+        font-family: FiraSansL;
+        font-size: 16px;
+    }
+    .product-item {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        background-position: 0px 0px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        text-decoration: none;
+        padding: 0px 0px 0px 210px;
+        height: 130px;
+        margin: 10px;
+        border: 1px solid #FFF;
+    }
+    .product-item:hover {
+        border: 1px solid #f3f3f3;
+        border-radius: 15px;
+        background-color: #fdfdfd;
+    }
+    .product-name {
+        font-family:FiraSansL;
+    }
+    .product-price {
+        font-size: 24px;
+        font-family: FiraSansM;
+    }
+    .product-price {
+        padding: 0px 40px 0px 0px;
+    }
+    .content {
+        padding: 0px 0px 30px 0px;
+    }
+    .content h2 {
+        font-family: FiraSansL;
+        font-size: 24px;
+        padding: 10px 0px 20px 0px;
+    }
+    .content h3 {
+        font-family: FiraSansM;
+        font-size: 18px;
+        padding: 10px 0px 20px 0px;
+    }
+    .content p {
+        font-family: FiraSansL;
+        line-height: 24px;
+        font-size: 16px;
+        padding: 0px 0px 20px;
+    }
+    .content ul, .content ol {
+        padding: 0px 0px 20px 20px;
+    }
+    .content ul li {
+        font-family: FiraSansL;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 5px 0px 5px 10px;
+    }
+    .content ol li {
+        font-family: FiraSansL;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 5px 0px 5px 10px;
+    }
+    .content blockquote {
+        font-family: FiraSansL;
+        font-size: 16px;
+        line-height: 24px;
+        background-color: #f1f1f1;
+        padding: 30px 30px 30px 30px;
+        margin-bottom: 30px;
+    }
+    .content a:hover {
+        color: #7f86b3 !important;
+    }
+    .content a:visited, .content a:link, .content a:active {
+        color: #000000;
     }
     .footer {
         height: 90px;
         margin-top: -90px;
-        background-color: #7f86b3;
+        background-color: #393939;
     }
     .footer-text {
         font-family: FiraSansL;

@@ -49,8 +49,8 @@ select {
 }
 
 blockquote {
-    margin: 1.25em;
-    padding: 1.25em;
+    margin: 0px;
+    padding: 0px;
 }
 
 q {
