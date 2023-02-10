@@ -13,9 +13,9 @@ use \App\Http\Controllers\PageController;
 |--------------------------------------------------------------------------
 */
 
-Route::get('login', function () {return view('admin.login');})->name('login');
+Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
-Route::get('register', function (){return view('admin.register');})->name('register');
+Route::get('register', [RegistrationController::class, 'index'])->name('register');
 Route::post('register', [RegistrationController::class, 'save']);
 Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('admin', [AdminController::class, 'index'])

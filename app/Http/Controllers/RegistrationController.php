@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class RegistrationController extends Controller
 {
+
+    public  function index(){
+        return view('admin.register', [
+            'title' => 'Регистрация'
+        ]);
+    }
+
     public function save(Request $request)
     {
         if (Auth::check()) {

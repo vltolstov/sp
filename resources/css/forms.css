@@ -1,0 +1,56 @@
+.form-wrap {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.admin-form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.form-header {
+    font-size: 24px;
+    font-family: FiraSansL;
+    width: 100%;
+    text-align: center;
+    padding: 0px 0px 20px 0px;
+}
+
+.admin-form .bord {
+    padding: 11px 15px 11px 15px;
+    border: 1px solid rgba(0,0,0,.15);
+    margin-top: 5px;
+    margin-bottom: 17px;
+}
+
+.admin-form .form-error {
+    border: 1px solid rgba(255,0,0,.3);
+    background-color: rgba(255,0,0,.05);
+}
+
+.admin-form input {
+    border: none;
+    font-size: 16px;
+    line-height: 19px;
+    width: 100%;
+    background: none;
+}
+
+.admin-button {
+    background-color: #393939;
+    border: 1px solid #2d3748;
+    color: #FFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 18px;
+    padding: 12px 0px;
+    text-align: center;
+    width: 100%;
+}
+
+.admin-button:hover {
+    background-color: #000;
+    border: 1px solid #000;
+}

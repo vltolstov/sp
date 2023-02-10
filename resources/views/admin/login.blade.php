@@ -1,28 +1,25 @@
-<div class="container">
-    <div class="min_width">
-        <div class="max_width">
-            <div class="row">
-                <div class="login-block">
-                    <div class="admin-form">
-                        <form action="{{ route('login') }}" method="post">
-                            @csrf
-                            <div class="bord">
-                                <input name="email" type="text" value="" placeholder="Email">
-                                @error('email')
-                                {{ $message }}
-                                @enderror
-                            </div>
-                            <div class="bord">
-                                <input name="password" type="password" value="" placeholder="Пароль">
-                                @error('password')
-                                {{ $message }}
-                                @enderror
-                            </div>
-                            <button type="submit" class="admin-button">Войти</button>
-                        </form>
-                    </div>
+@extends('.layouts.admin')
+
+@section('login')
+    <div class="form-wrap">
+        <div class="admin-form">
+            <p class="form-header">{{$title}}</p>
+            <form action="{{ route('login') }}" method="post">
+                @csrf
+                <div class="bord @error('email') form-error @enderror">
+                    <input name="email" type="text" value="" placeholder="Email">
+                    @error('email')
+                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
                 </div>
-            </div>
+                <div class="bord @error('password') form-error @enderror">
+                    <input name="password" type="password" value="" placeholder="Пароль">
+                    @error('password')
+                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                </div>
+                <button type="submit" class="admin-button">Войти</button>
+            </form>
         </div>
     </div>
-</div>
+@endsection

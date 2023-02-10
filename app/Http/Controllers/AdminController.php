@@ -9,10 +9,12 @@ use Illuminate\Support\Facades\Gate;
 class AdminController extends Controller
 {
     public function index(Request $request){
-//        $response = Gate::inspect('view-admin-part', [self::class]);
-//        if($response->denied()){
-//            abort($response->code(), $response->message());
-//        }
-        return view('admin.index', []);
+        $response = Gate::inspect('view-admin-part', [self::class]);
+        if($response->denied()){
+            abort($response->code(), $response->message());
+        }
+        return view('admin.index', [
+            'title' => 'Панель управления'
+        ]);
     }
 }
