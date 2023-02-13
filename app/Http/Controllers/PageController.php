@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\ContentSet;
+use App\Models\Image;
 use App\Models\Page;
 use App\Models\PageType;
 use App\Models\ParametrSet;
@@ -102,16 +103,27 @@ class PageController extends Controller
 
         $validationData = $request->validate([
             'name' => ['required','string','max:50'],
+            'page_type_id' => 'present',
+
             'urn' => ['required', 'string', 'unique:slugs,urn'],
+
+            'introtext' => 'present',
+            'content' => 'present',
+
             'title' => ['required','string','max:70'],
             'description' => ['required', 'string', 'max:160'],
-            'category' => 'present',
-            'introtext' => 'present',
             'keywords' => 'present',
+
+            'category' => 'present',
             'parent_id' => 'present',
-            'page_type_id' => 'present',
-            'content' => 'present'
+
         ]);
+
+        $validationData['params'] = null;
+        $validationData['image'] = null;
+
+        // обработка картинок, обработка параметров
+        // если категория, то дополнительно пишем флаг категории
 
 //        if($request->file('images')) {
 //
@@ -127,6 +139,7 @@ class PageController extends Controller
             $validationData['page_id'] = Page::create($validationData)->id;
             Slug::create($validationData);
             ContentSet::create($validationData);
+            Image::create($validationData);
             ParametrSet::create($validationData);
             SeoSet::create($validationData);
         }
