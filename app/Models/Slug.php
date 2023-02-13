@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Slug extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'page_id',
+        'urn'
+    ];
 }

@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class SeoSet extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'page_id',
+        'title',
+        'description',
+        'keywords'
+    ];
 }

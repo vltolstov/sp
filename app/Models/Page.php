@@ -9,6 +9,12 @@ class Page extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'page_type_id',
+        'parent_id',
+    ];
+
     public function pageType()
     {
         return $this->hasOne(PageType::class);

@@ -9,6 +9,10 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'page_id',
+    ];
+
     public function page()
     {
         return $this->hasMany(Page::class);

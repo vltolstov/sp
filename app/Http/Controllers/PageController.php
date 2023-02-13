@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\ContentSet;
 use App\Models\Page;
 use App\Models\PageType;
+use App\Models\ParametrSet;
+use App\Models\SeoSet;
 use App\Models\Slug;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -76,5 +80,61 @@ class PageController extends Controller
         return view('pages.default', $data);
 
     }
+
+    public function create()
+    {
+        $categories = Category::select('*')
+            ->join('pages', 'categories.page_id', '=', 'pages.id')
+            ->get();
+
+        $pageTypes = PageType::all();
+
+        return view('admin.index', [
+            'createNew' => true,
+            'categories' => $categories,
+            'pageTypes' => $pageTypes,
+            'title' => 'Создание страницы'
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+
+        $validationData = $request->validate([
+            'name' => ['required','string','max:50'],
+            'urn' => ['required', 'string', 'unique:slugs,urn'],
+            'title' => ['required','string','max:70'],
+            'description' => ['required', 'string', 'max:160'],
+            'category' => 'present',
+            'introtext' => 'present',
+            'keywords' => 'present',
+            'parent_id' => 'present',
+            'page_type_id' => 'present',
+            'content' => 'present'
+        ]);
+
+//        if($request->file('images')) {
+//
+//            $validationData['images'] = ImageController::imageDataProcessing
+//            (
+//                $request->file('images'),
+//                $validationData['slug']
+//            );
+//
+//        }
+
+        try{
+            $validationData['page_id'] = Page::create($validationData)->id;
+            Slug::create($validationData);
+            ContentSet::create($validationData);
+            ParametrSet::create($validationData);
+            SeoSet::create($validationData);
+        }
+        catch (QueryException $exception){
+            return redirect(route('page.create'))->withErrors('Ошибки в форме');
+        }
+        return redirect(route('admin'));
+    }
+
 
 }
