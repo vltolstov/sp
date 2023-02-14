@@ -135,6 +135,7 @@ class PageController extends Controller
 //
 //        }
 
+
         try{
             $validationData['page_id'] = Page::create($validationData)->id;
             Slug::create($validationData);
@@ -142,6 +143,10 @@ class PageController extends Controller
             Image::create($validationData);
             ParametrSet::create($validationData);
             SeoSet::create($validationData);
+
+            if($validationData['category']){
+                Category::create($validationData);
+            };
         }
         catch (QueryException $exception){
             return redirect(route('page.create'))->withErrors('Ошибки в форме');
