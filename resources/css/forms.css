@@ -4,9 +4,13 @@
     align-items: center;
 }
 
-.admin-form {
+.auth-form {
     width: 300px;
     margin: 0 auto;
+}
+
+.admin-form {
+
 }
 
 .form-header {
@@ -17,19 +21,19 @@
     padding: 0px 0px 20px 0px;
 }
 
-.admin-form .bord {
+.bord {
     padding: 11px 15px 11px 15px;
     border: 1px solid rgba(0,0,0,.15);
     margin-top: 5px;
     margin-bottom: 17px;
 }
 
-.admin-form .form-error {
+.form-error {
     border: 1px solid rgba(255,0,0,.3);
     background-color: rgba(255,0,0,.05);
 }
 
-.admin-form input {
+.auth-form input, .admin-form input {
     border: none;
     font-size: 16px;
     line-height: 19px;

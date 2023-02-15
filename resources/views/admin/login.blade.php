@@ -2,7 +2,7 @@
 
 @section('login')
     <div class="form-wrap">
-        <div class="admin-form">
+        <div class="auth-form">
             <p class="form-header">{{$title}}</p>
             <form action="{{ route('login') }}" method="post">
                 @csrf

@@ -13,4 +13,6 @@ function updateSlug(){
     });
 }
 
-document.querySelector('.name').onblur = updateSlug;
+if(document.querySelector('.name')) {
+    document.querySelector('.name').onblur = updateSlug;
+}
