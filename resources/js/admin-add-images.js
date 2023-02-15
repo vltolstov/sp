@@ -17,5 +17,4 @@ function addImageInput() {
     images.appendChild(newImage);
 }
 
-console.log(images);
 addImagesButton.addEventListener('click', addImageInput);

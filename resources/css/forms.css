@@ -9,8 +9,9 @@
     margin: 0 auto;
 }
 
-.admin-form {
-
+.admin-form label {
+    font-family: FiraSansL;
+    font-size: 16px;
 }
 
 .form-header {
@@ -33,7 +34,7 @@
     background-color: rgba(255,0,0,.05);
 }
 
-.auth-form input, .admin-form input {
+.bord input, .bord input {
     border: none;
     font-size: 16px;
     line-height: 19px;
@@ -59,7 +60,7 @@
     border: 1px solid #000;
 }
 
-.add-images-button {
+.add-images-button, .add-params-button {
     color: #000;
     text-decoration: underline;
     cursor: pointer;
@@ -71,6 +72,31 @@
     width: 200px;
 }
 
-.add-images-button:hover {
+.add-images-button:hover, .add-params-button:hover {
     color: #7f86b3;
 }
+
+.params-line {
+    padding: 11px 15px 11px 15px;
+    border: 1px solid rgba(0,0,0,.15);
+    margin-top: 5px;
+    margin-bottom: 17px;
+}
+
+.params-line input {
+    border: none;
+    font-size: 16px;
+    line-height: 19px;
+    background: none;
+    margin: 5px 0px;
+}
+
+.param-labels {
+    font-family: FiraSansL;
+    font-size: 14px;
+    color: #666;
+    padding: 0px 15px;
+    margin-top: 5px;
+    display: flex;
+}
+

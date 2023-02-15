@@ -89,6 +89,28 @@
                     @enderror
                     <input type="text" name="introtext" placeholder="Интро" value="{{ old('introtext') }}">
                 </div>
+                <label>Параметры</label>
+                <div class="add-params-button">(Добавить еще параметр)</div>
+                <div class="param-labels row">
+                    <div class="col-lg-5">
+                        <p>Наименование</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <p>Значение</p>
+                    </div>
+                    <div class="col-lg-1">
+                        <p align="center">Приоритет</p>
+                    </div>
+                    <div class="col-lg-1">
+                        <p align="center">Скрыт</p>
+                    </div>
+                </div>
+                <div class="params-line row">
+                    <input class="col-lg-5" type="text" name="param-name-1" placeholder="Параметр" value="{{ old('param-name-1') }}">
+                    <input class="col-lg-5" type="text" name="param-value-1" placeholder="Значение" value="{{ old('param-value-1') }}">
+                    <input class="col-lg-1" type="checkbox" name="param-active-1" value="{{ old('param-active-1') }}">
+                    <input class="col-lg-1" type="checkbox" name="param-hide-1" value="{{ old('param-hide-1') }}">
+                </div>
                 <label>Контент</label>
                 <div>
                     <textarea name="content" placeholder="Контент" id="content"></textarea>
