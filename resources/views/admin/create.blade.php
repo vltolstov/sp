@@ -59,9 +59,10 @@
                         @endforeach
                     </select>
                 </div>
-                <label>Картинка</label>
-                <div class="bord">
-                    <input type="file" name="image" placeholder="Картинка" value="{{ old('image') }}">
+                <label>Изображение</label>
+                <div class="add-images-button">(Добавить еще изображения)</div>
+                <div class="bord images">
+                    <input type="file" name="image-1">
                 </div>
                 <label>Заголовок</label>
                 <div class="bord @error('title') form-error @enderror">

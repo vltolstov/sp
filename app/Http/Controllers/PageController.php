@@ -12,6 +12,7 @@ use App\Models\SeoSet;
 use App\Models\Slug;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\ImageController;
 
 class PageController extends Controller
 {
@@ -119,28 +120,12 @@ class PageController extends Controller
 
         ]);
 
-        $validationData['params'] = null;
-        $validationData['image'] = null;
+        if($request->file('image-1')) {
+            $validationData['image'] = ImageController::imageDataProcessing($request, $validationData['urn']);
+        }
 
-        // обработка картинок,
-        //
-        // пройти по запросу и найти все картинки
-        // с каждой картинкой проверяем файл на картинку
-        // далее вызываем контроллер, пишем картинку, возвращаем json
-        // тут важно получать уникальный путь в json
-        // набираем json в отдельную переменную (которую запишем в базу)
-        //
         // обработка параметров
-
-//        if($request->file('images')) {
-//
-//            $validationData['images'] = ImageController::imageDataProcessing
-//            (
-//                $request->file('images'),
-//                $validationData['slug']
-//            );
-//
-//        }
+        $validationData['params'] = null;
 
 
         try{
@@ -153,7 +138,7 @@ class PageController extends Controller
 
             if($validationData['category']){
                 Category::create($validationData);
-            };
+            }
         }
         catch (QueryException $exception){
             return redirect(route('page.create'))->withErrors('Ошибки в форме');

@@ -58,3 +58,19 @@
     background-color: #000;
     border: 1px solid #000;
 }
+
+.add-images-button {
+    color: #000;
+    text-decoration: underline;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 18px;
+    padding: 12px 0px;
+    text-align: center;
+    width: 200px;
+}
+
+.add-images-button:hover {
+    color: #7f86b3;
+}
