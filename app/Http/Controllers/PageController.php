@@ -125,8 +125,7 @@ class PageController extends Controller
         }
 
         // обработка параметров
-        $validationData['params'] = null;
-
+        $validationData['params'] = ParametrSetController::ParametrDataProcessing($request);
 
         try{
             $validationData['page_id'] = Page::create($validationData)->id;

@@ -20,7 +20,6 @@ function addImage() {
 
     let imageDelButton = document.createElement('div');
     imageDelButton.classList.add('del-button');
-    imageDelButton.classList.add('del-image-' + lastIndex);
     imageDelButton.innerHTML = '<span class="icon-exit"></span>';
 
     let newImageInput = document.createElement('input');

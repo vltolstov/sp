@@ -61,6 +61,7 @@
 }
 
 .add-images-button, .add-params-button {
+    font-family: FiraSansL;
     color: #000;
     text-decoration: underline;
     cursor: pointer;
@@ -69,7 +70,6 @@
     line-height: 18px;
     padding: 12px 0px;
     text-align: center;
-    width: 200px;
 }
 
 .add-images-button:hover, .add-params-button:hover {
@@ -117,3 +117,10 @@
 .images input {
     width: 80% !important;
 }
+
+.delCol {
+    width: 37px;
+}
+
+
+
