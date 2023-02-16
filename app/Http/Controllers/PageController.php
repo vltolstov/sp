@@ -120,7 +120,7 @@ class PageController extends Controller
 
         ]);
 
-        if($request->file('image-1')) {
+        if($request->file()) {
             $validationData['image'] = ImageController::imageDataProcessing($request, $validationData['urn']);
         }
 

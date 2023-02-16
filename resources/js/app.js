@@ -1,4 +1,4 @@
 import './bootstrap';
 import './urn-generator';
-import './admin-add-images';
+import './admin-image-handler';
 import './admin-add-params-line';

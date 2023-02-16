@@ -61,8 +61,11 @@
                 </div>
                 <label>Изображение</label>
                 <div class="add-images-button">(Добавить еще изображения)</div>
-                <div class="bord images">
-                    <input type="file" name="image-1">
+                <div class="images">
+                    <div class="bord image-1">
+                        <div class="del-button del-image-1"><span class="icon-exit"></span></div>
+                        <input type="file" name="image-1">
+                    </div>
                 </div>
                 <label>Заголовок</label>
                 <div class="bord @error('title') form-error @enderror">
