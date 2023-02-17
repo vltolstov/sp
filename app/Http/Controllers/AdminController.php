@@ -13,8 +13,12 @@ class AdminController extends Controller
         if($response->denied()){
             abort($response->code(), $response->message());
         }
+
+        $pages = [];
+
         return view('admin.index', [
-            'title' => 'Панель управления'
+            'title' => 'Панель управления',
+            'pages' => $pages,
         ]);
     }
 }

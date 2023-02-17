@@ -85,6 +85,19 @@ class PageController extends Controller
 
     public function create()
     {
+
+//        получение только страниц
+//        $pages = Page::select('pages.id', 'pages.name')
+//            ->leftJoin('categories', 'categories.page_id', '=', 'pages.id')
+//            ->whereNull('categories.page_id')
+//            ->orderBy('pages.id', 'ASC')
+//            ->get();
+
+        //получение всего
+        $pages = Page::select('pages.id', 'pages.name')
+            ->orderBy('pages.id', 'ASC')
+            ->get();
+
         $categories = Category::select('*')
             ->join('pages', 'categories.page_id', '=', 'pages.id')
             ->get();
@@ -93,6 +106,7 @@ class PageController extends Controller
 
         return view('admin.index', [
             'createNew' => true,
+            'pages' => $pages,
             'categories' => $categories,
             'pageTypes' => $pageTypes,
             'title' => 'Создание страницы'
@@ -142,6 +156,39 @@ class PageController extends Controller
             return redirect(route('page.create'))->withErrors('Ошибки в форме');
         }
         return redirect(route('admin'));
+    }
+
+    public function edit(Page $page)
+    {
+
+        $images = json_decode($page->image->image, true);
+        $params = json_decode($page->parametrSet->params, true);
+
+        $categories = Category::select('*')
+            ->join('pages', 'categories.page_id', '=', 'pages.id')
+            ->get();
+
+        $pageTypes = PageType::select('*')
+            ->get();
+
+        return view('admin.edit', [
+            'categories' => $categories,
+            'pageTypes' => $pageTypes,
+            'currentPage' => $page,
+            'seoSet' => $page->seoSet,
+            'contentSet' => $page->contentSet,
+            'slug' => $page->slug->urn,
+            'images' => $images,
+            'params' => $params,
+        ]);
+
+    }
+
+    public function update(Request $request, Page $page)
+    {
+
+        return 'типа обновили';
+
     }
 
 
