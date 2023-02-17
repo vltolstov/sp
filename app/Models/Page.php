@@ -47,7 +47,7 @@ class Page extends Model
 
     public function category()
     {
-        return$this->hasOne(ContentSet::class);
+        return$this->hasOne(Category::class);
     }
 
 }

@@ -12,7 +12,7 @@
         @csrf
         <div class="row">
             <div class="col-lg-9">
-                <h2 class="admin-h2">Редактирование</h2>
+                <h2 class="admin-h2">Новая страница</h2>
             </div>
             <div class="col-lg-3">
                 <button type="submit" class="admin-button">Сохранить</button>
@@ -20,17 +20,21 @@
         </div>
 
         <div class="admin-edit">
-
-            @method('PUT')
             <div class="admin-form">
                 <label>Название</label>
-                <div class="bord">
-                    <input type="text" name="name" placeholder="Название" value="{{ $currentPage->name }}" maxlength="50">
-                    <input type="hidden" name="slug" placeholder="URI" value="{{$currentPage->slug}}">
+                <div class="bord @error('name') form-error @enderror">
+                    @error('name')
+                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                    <input type="text" name="name" placeholder="Название" value="{{ old('name') }}" maxlength="50" class="name">
                 </div>
-
-
-
+                <label>URI</label>
+                <div class="bord @error('urn') form-error @enderror">
+                    @error('urn')
+                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                    <input type="text" name="urn" placeholder="URI" value="{{ old('urn') }}" class="urn">
+                </div>
                 <label>Тип страницы</label>
                 <div class="bord">
                     <select name="page_type_id">

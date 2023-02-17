@@ -168,18 +168,33 @@ class PageController extends Controller
             ->join('pages', 'categories.page_id', '=', 'pages.id')
             ->get();
 
+        //получение всего
+        $pages = Page::select('pages.id', 'pages.name')
+            ->orderBy('pages.id', 'ASC')
+            ->get();
+
         $pageTypes = PageType::select('*')
             ->get();
 
-        return view('admin.edit', [
+        $isCategory = true;
+//        if($page->category->id == null){
+//            $isCategory = false;
+//        }
+
+        //если страница не является категорией, то как это получить?
+
+        return view('admin.index', [
+            'pages' => $pages,
             'categories' => $categories,
             'pageTypes' => $pageTypes,
             'currentPage' => $page,
+            'isCategory' => $isCategory,
             'seoSet' => $page->seoSet,
             'contentSet' => $page->contentSet,
             'slug' => $page->slug->urn,
             'images' => $images,
             'params' => $params,
+            'title' => 'Редактирование страницы'
         ]);
 
     }

@@ -22,6 +22,7 @@
              </div>
              <div class="col-lg-9">
                  @include('admin.create')
+                 @include('admin.edit')
                  @include('admin.content')
              </div>
          </div>
