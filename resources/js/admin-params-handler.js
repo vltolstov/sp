@@ -38,11 +38,13 @@ function addParamInput() {
     newParamActive.classList.add('col-lg-1');
     newParamActive.type = 'checkbox';
     newParamActive.name = 'param-active-' + index;
+    newParamActive.value = '1';
 
     let newParamHide = document.createElement('input');
     newParamHide.classList.add('col-lg-1');
     newParamHide.type = 'checkbox';
     newParamHide.name = 'param-hide-' + index;
+    newParamHide.value = '1';
 
     newParamsLine.appendChild(newParamDelButton);
     newParamsLine.appendChild(newParamName);

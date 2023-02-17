@@ -10,7 +10,7 @@ class ParametrSetController extends Controller
     public static function ParametrDataProcessing($request)
     {
 
-        $arrData = [];
+        $paramArr = [];
         $paramObject = [];
 
         $data = $request->input();
@@ -18,18 +18,22 @@ class ParametrSetController extends Controller
         var_dump($data);
 
         foreach ($data as $key => $value) {
-            if (preg_match('/param-name-[0-9]/', $key)) {
+            if (preg_match('/param-name-[0-9]/', $key) && $value !== null) {
                 $paramObject['name'] = $value;
-                $arrData[] = $paramObject;
+                $paramIndex = substr($key, mb_strlen('param-name-'));
+                $paramObject['value'] = $data['param-value-' . $paramIndex];
+                $paramObject['active'] = $request->boolean('param-active-' . $paramIndex);
+                $paramObject['hide'] = $request->boolean('param-hide-' . $paramIndex);
+                $paramArr[] = $paramObject;
             }
         }
 
-        //тут дописать наполнение массива параметров остальными данными
+        if(empty($paramArr)) {
+            return null;
+        }
 
-        var_dump($arrData);
-        die;
+        return json_encode($paramArr);
 
-        return null;
     }
 
 }

@@ -124,7 +124,6 @@ class PageController extends Controller
             $validationData['image'] = ImageController::imageDataProcessing($request, $validationData['urn']);
         }
 
-        // обработка параметров
         $validationData['params'] = ParametrSetController::ParametrDataProcessing($request);
 
         try{
