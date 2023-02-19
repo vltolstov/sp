@@ -48,6 +48,43 @@
                         @endif
                     </select>
                 </div>
+                <label>Категория | Подкатегория</label>
+                <div class="bord">
+                    <select name="parent_id">
+                        <option value="0">Без категории</option>
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}" @if($currentPage->parent_id == $category->id) selected @endif>{{$category->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                картинки
+
+                <label>Заголовок</label>
+                <div class="bord">
+                    <input type="text" name="title" placeholder="Заголовок" value="{{ $seoSet->title }}" maxlength="70">
+                </div>
+                <label>Описание</label>
+                <div class="bord">
+                    <input type="text" name="description" placeholder="Описание" value="{{ $seoSet->description }}" maxlength="160">
+                </div>
+                <label>Ключевые слова</label>
+                <div class="bord">
+                    <input type="text" name="keywords" placeholder="Ключевые слова" value="{{ $seoSet->keywords }}">
+                </div>
+                <label>Интро</label>
+                <div class="bord">
+                    <input type="text" name="introtext" placeholder="Интро" value="{{ $contentSet->introtext }}">
+                </div>
+
+                параметры
+
+                <label>Контент</label>
+                <div class="cke-editor">
+                    <textarea name="content" placeholder="Контент" id="ckeditor">
+                        {{ $contentSet->content }}
+                    </textarea>
+                </div>
             </div>
         </div>
     </form>
