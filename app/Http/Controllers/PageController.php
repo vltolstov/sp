@@ -176,12 +176,14 @@ class PageController extends Controller
         $pageTypes = PageType::select('*')
             ->get();
 
-        $isCategory = true;
-//        if($page->category->id == null){
-//            $isCategory = false;
-//        }
+        $isCategory = Page::select('categories.id')
+            ->leftJoin('categories', 'pages.id', '=', 'categories.page_id')
+            ->where('pages.id', '=', $page->id)
+            ->first();
 
-        //если страница не является категорией, то как это получить?
+        if($isCategory->id !== null){
+            $isCategory = false;
+        }
 
         return view('admin.index', [
             'pages' => $pages,

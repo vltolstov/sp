@@ -40,11 +40,11 @@
                 <div class="bord">
                     <select name="category">
                         @if($isCategory)
-                            <option value="{{ $currentPage->parent_id }}">Да</option>
                             <option value="0">Нет</option>
-                        @else
-                            <option value="{{ $currentPage->parent_id }}">Нет</option>
                             <option value="1">Да</option>
+                        @else
+                            <option value="1">Да</option>
+                            <option value="0">Нет</option>
                         @endif
                     </select>
                 </div>
