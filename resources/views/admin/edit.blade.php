@@ -26,7 +26,7 @@
                 <label>Название</label>
                 <div class="bord">
                     <input type="text" name="name" placeholder="Название" value="{{ $currentPage->name }}" maxlength="50">
-                    <input type="hidden" name="urn" placeholder="URI" value="{{$slug}}">
+                    <input type="hidden" name="urn" value="{{$slug}}">
                 </div>
                 <label>Тип страницы</label>
                 <div class="bord">
@@ -63,15 +63,16 @@
                 @if(isset($images))
                     <div class="images">
                         @foreach($images as $image)
-                            <div class="bord image-1">
+                            <div class="bord">
                                 <div class="del-button"><span class="icon-exit"></span></div>
                                 <img src="{{$image}}" width="150px">
+                                <input type="hidden" name="upload-images[]" value="{{$image}}">
                             </div>
                         @endforeach
                     </div>
                 @else
                     <div class="images">
-                        <div class="bord image-1">
+                        <div class="bord">
                             <div class="del-button"><span class="icon-exit"></span></div>
                             <input type="file" name="image-1">
                         </div>

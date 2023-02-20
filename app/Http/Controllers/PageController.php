@@ -223,10 +223,6 @@ class PageController extends Controller
 
         ]);
 
-        if ($request->file()) {
-            $validationData['image'] = ImageController::imageDataProcessing($request, $validationData['urn']);
-        }
-
         $page->update($validationData);
         $page->contentSet->update($validationData);
         $page->seoSet->update($validationData);
@@ -238,12 +234,40 @@ class PageController extends Controller
             ->first();
         if(!$validationData['category'] && $isCategory->id){
             $page->category->delete($validationData);
-        } elseif ($validationData['category'] && !$isCategory->id) {
+        }
+        elseif ($validationData['category'] && !$isCategory->id) {
             $validationData['page_id'] = $page->id;
             Category::create($validationData);
         }
 
-        $page->image->update($validationData);
+
+        if($request->input('upload-images') == null && !$request->file()){
+//            $validationData['image'] = null;
+//            $page->image->update($validationData);
+            var_dump('ничего нет, все удалили, файлов тоже нет');
+        }
+        elseif ($request->input('upload-images') != null){
+            var_dump('чтото изменилось, перезаписать json');
+        }
+        else {
+            var_dump($request->input('upload-images'));
+            var_dump('есть только новые файлы');
+        }
+
+        die;
+
+//        if ($request->input('upload-images') == null && $request->file()) {
+//
+//            var_dump('картинки удалили, новые загрузили');
+//
+//            //$validationData['image'] = ImageController::imageDataProcessing($request, $validationData['urn']);
+//        }
+
+
+
+        //слияние того что уже есть с новыми картинками
+        //запись в базу
+
         //Image::create($validationData);
         //ParametrSet::create($validationData);
 

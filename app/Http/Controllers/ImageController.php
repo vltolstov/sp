@@ -19,7 +19,10 @@ class ImageController extends Controller
         foreach ($images->file() as $key => $value) {
             if (preg_match('/image-[0-9]/', $key)) {
                 $image = $images->file($key);
-                $fileName = $name . '-' . $index;
+                $fileName = $image->getClientOriginalName();
+                $fileName = substr($fileName, 0 , strrpos($fileName, '.')); // удаление расширения
+                $fileName = Str::slug($fileName) . '-' . $index;
+
                 $fileExtension = $image->getClientOriginalExtension();
                 $uploadFolder = '/img/' . $name;
 
