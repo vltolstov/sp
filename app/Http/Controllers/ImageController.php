@@ -16,28 +16,38 @@ class ImageController extends Controller
         $index = 1;
         $imageArr = [];
 
-        foreach ($images->file() as $key => $value) {
-            if (preg_match('/image-[0-9]/', $key)) {
-                $image = $images->file($key);
-                $fileName = $image->getClientOriginalName();
-                $fileName = substr($fileName, 0 , strrpos($fileName, '.')); // удаление расширения
-                $fileName = Str::slug($fileName) . '-' . $index;
-
-                $fileExtension = $image->getClientOriginalExtension();
-                $uploadFolder = '/img/' . $name;
-
-                // где-то тут кроп и генерация разрешений
-                //200х150, 400х300, 800х600, 1200х960, 2000х1500
-
-                $imageData = [
-                    'name' => $fileName . '.' . $fileExtension,
-                    'uploadFolder' => $uploadFolder,
-                    'fullPath' => $uploadFolder . '/' . $fileName . '.' . $fileExtension
-                ];
-
-                $imageArr['image-' . $index] = $imageData['fullPath'];
-                Storage::putFileAs($imageData['uploadFolder'], $image, $imageData['name']);
+        if($images->input('upload-images')){
+            foreach ($images->input('upload-images') as $item) {
+                $imageArr['image-' . $index] = $item;
                 $index++;
+            }
+        }
+
+
+        if($images->file()) {
+            foreach ($images->file() as $key => $value) {
+                if (preg_match('/image-[0-9]/', $key)) {
+                    $image = $images->file($key);
+                    $fileName = $image->getClientOriginalName();
+                    $fileName = substr($fileName, 0, strrpos($fileName, '.')); // удаление расширения
+                    $fileName = Str::slug($fileName) . '-' . $index;
+
+                    $fileExtension = $image->getClientOriginalExtension();
+                    $uploadFolder = '/img/' . $name;
+
+                    // где-то тут кроп и генерация разрешений
+                    //200х150, 400х300, 800х600, 1200х960, 2000х1500
+
+                    $imageData = [
+                        'name' => $fileName . '.' . $fileExtension,
+                        'uploadFolder' => $uploadFolder,
+                        'fullPath' => $uploadFolder . '/' . $fileName . '.' . $fileExtension
+                    ];
+
+                    $imageArr['image-' . $index] = $imageData['fullPath'];
+                    Storage::putFileAs($imageData['uploadFolder'], $image, $imageData['name']);
+                    $index++;
+                }
             }
         }
 

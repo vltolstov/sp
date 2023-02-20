@@ -242,33 +242,14 @@ class PageController extends Controller
 
 
         if($request->input('upload-images') == null && !$request->file()){
-//            $validationData['image'] = null;
-//            $page->image->update($validationData);
-            var_dump('ничего нет, все удалили, файлов тоже нет');
-        }
-        elseif ($request->input('upload-images') != null){
-            var_dump('чтото изменилось, перезаписать json');
+            $validationData['image'] = null;
+            $page->image->update($validationData);
         }
         else {
-            var_dump($request->input('upload-images'));
-            var_dump('есть только новые файлы');
+            $validationData['image'] = ImageController::imageDataProcessing($request, $validationData['urn']);
+            $page->image->update($validationData);
         }
 
-        die;
-
-//        if ($request->input('upload-images') == null && $request->file()) {
-//
-//            var_dump('картинки удалили, новые загрузили');
-//
-//            //$validationData['image'] = ImageController::imageDataProcessing($request, $validationData['urn']);
-//        }
-
-
-
-        //слияние того что уже есть с новыми картинками
-        //запись в базу
-
-        //Image::create($validationData);
         //ParametrSet::create($validationData);
 
         return redirect()->route('page.edit', [$page->id]);
