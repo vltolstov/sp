@@ -8,7 +8,7 @@
         </div>
     @endif
 
-    <form action="{{route('page.store')}}" enctype="multipart/form-data" method="POST" name="create">
+    <form action="{{route('page.update', $currentPage->id)}}" enctype="multipart/form-data" method="POST" name="create">
         @csrf
         <div class="row">
             <div class="col-lg-9">
@@ -26,7 +26,7 @@
                 <label>Название</label>
                 <div class="bord">
                     <input type="text" name="name" placeholder="Название" value="{{ $currentPage->name }}" maxlength="50">
-                    <input type="hidden" name="slug" placeholder="URI" value="{{$slug}}">
+                    <input type="hidden" name="urn" placeholder="URI" value="{{$slug}}">
                 </div>
                 <label>Тип страницы</label>
                 <div class="bord">
@@ -58,7 +58,25 @@
                     </select>
                 </div>
 
-                картинки
+                <label>Изображение</label>
+                <div class="add-images-button">(Добавить еще изображения)</div>
+                @if(isset($images))
+                    <div class="images">
+                        @foreach($images as $image)
+                            <div class="bord image-1">
+                                <div class="del-button"><span class="icon-exit"></span></div>
+                                <img src="{{$image}}" width="150px">
+                            </div>
+                        @endforeach
+                    </div>
+                @else
+                    <div class="images">
+                        <div class="bord image-1">
+                            <div class="del-button"><span class="icon-exit"></span></div>
+                            <input type="file" name="image-1">
+                        </div>
+                    </div>
+                @endif
 
                 <label>Заголовок</label>
                 <div class="bord">

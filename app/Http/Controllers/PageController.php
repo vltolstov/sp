@@ -166,6 +166,7 @@ class PageController extends Controller
 
         $categories = Category::select('*')
             ->join('pages', 'categories.page_id', '=', 'pages.id')
+            ->where('page_id', '!=', $page->id)
             ->get();
 
         //получение всего
@@ -204,9 +205,50 @@ class PageController extends Controller
     public function update(Request $request, Page $page)
     {
 
-        return 'типа обновили';
+        $validationData = $request->validate([
+            'name' => ['required', 'string', 'max:50'],
+            'page_type_id' => 'present',
+
+            'urn' => 'required',
+
+            'introtext' => 'present',
+            'content' => 'present',
+
+            'title' => ['required', 'string', 'max:70'],
+            'description' => ['required', 'string', 'max:160'],
+            'keywords' => 'present',
+
+            'category' => 'present',
+            'parent_id' => 'present',
+
+        ]);
+
+        if ($request->file()) {
+            $validationData['image'] = ImageController::imageDataProcessing($request, $validationData['urn']);
+        }
+
+        $page->update($validationData);
+        $page->contentSet->update($validationData);
+        $page->seoSet->update($validationData);
+
+
+        $isCategory = Page::select('categories.id')
+            ->leftJoin('categories', 'pages.id', '=', 'categories.page_id')
+            ->where('pages.id', '=', $page->id)
+            ->first();
+        if(!$validationData['category'] && $isCategory->id){
+            $page->category->delete($validationData);
+        } elseif ($validationData['category'] && !$isCategory->id) {
+            $validationData['page_id'] = $page->id;
+            Category::create($validationData);
+        }
+
+        $page->image->update($validationData);
+        //Image::create($validationData);
+        //ParametrSet::create($validationData);
+
+        return redirect()->route('page.edit', [$page->id]);
 
     }
-
 
 }
