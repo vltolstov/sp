@@ -8,12 +8,11 @@
 
 const images = document.querySelector('.images');
 const addImagesButton = document.querySelector('.add-images-button');
-let lastIndex = 1;
+let lastIndex = images.childElementCount;
 
 function addImage() {
     lastIndex++;
 
-    let index = images.childElementCount + 1;
     let imageBlock = document.createElement('div');
     imageBlock.classList.add('bord');
     imageBlock.classList.add('image-' + lastIndex);
