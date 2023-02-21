@@ -257,4 +257,16 @@ class PageController extends Controller
 
     }
 
+    public function destroy(Page $page)
+    {
+        $page->delete();
+        $page->contentSet->delete();
+        $page->image->delete();
+        $page->parametrSet->delete();
+        $page->seoSet->delete();
+        $page->slug->delete();
+        $page->category->delete();
+        return redirect()->route('admin');
+    }
+
 }

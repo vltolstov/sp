@@ -171,5 +171,13 @@
             </div>
         </div>
     </form>
-
+    <form action="{{ route('page.destroy', $currentPage->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <div class="row">
+            <div class="col-lg-12 delete-block">
+                <button type="submit" class="delete-button">Удалить страницу</button>
+            </div>
+        </div>
+    </form>
 @endisset
