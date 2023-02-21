@@ -86,12 +86,9 @@ class PageController extends Controller
     public function create()
     {
 
-//        получение только страниц
-//        $pages = Page::select('pages.id', 'pages.name')
-//            ->leftJoin('categories', 'categories.page_id', '=', 'pages.id')
-//            ->whereNull('categories.page_id')
-//            ->orderBy('pages.id', 'ASC')
-//            ->get();
+        $menuPages = Page::select('*')
+            ->where('parent_id', '=', '0')
+            ->get();
 
         //получение всего
         $pages = Page::select('pages.id', 'pages.name')
@@ -107,6 +104,7 @@ class PageController extends Controller
         return view('admin.index', [
             'createNew' => true,
             'pages' => $pages,
+            'menuPages' => $menuPages,
             'categories' => $categories,
             'pageTypes' => $pageTypes,
             'title' => 'Создание страницы'
@@ -161,6 +159,10 @@ class PageController extends Controller
     public function edit(Page $page)
     {
 
+        $menuPages = Page::select('*')
+            ->where('parent_id', '=', '0')
+            ->get();
+
         $images = json_decode($page->image->image, true);
         $params = json_decode($page->parametrSet->params, true);
 
@@ -169,8 +171,8 @@ class PageController extends Controller
             ->where('page_id', '!=', $page->id)
             ->get();
 
-        //получение всего
         $pages = Page::select('pages.id', 'pages.name')
+            ->where('parent_id', '=', $page->id)
             ->orderBy('pages.id', 'ASC')
             ->get();
 
@@ -188,6 +190,7 @@ class PageController extends Controller
 
         return view('admin.index', [
             'pages' => $pages,
+            'menuPages' => $menuPages,
             'categories' => $categories,
             'pageTypes' => $pageTypes,
             'currentPage' => $page,

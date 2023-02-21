@@ -122,7 +122,7 @@
     width: 37px;
 }
 
-.delete-block {
+.delete-block, .save-button {
     text-align: center;
     margin: 50px 0px;
 }
@@ -139,4 +139,22 @@
     text-align: center;
 }
 
+.admin-main-menu {
+    padding: 30px 0px;
+}
 
+.admin-sub-menu {
+    padding: 30px 0px;
+}
+
+.admin-menu-header {
+    font-family: FiraSansM;
+    font-size: 18px;
+    padding: 0px 0px 15px 0px;
+}
+
+.admin-h2 {
+    font-family: FiraSansM;
+    font-size: 20px;
+    padding: 30px 0px 15px 0px;
+}

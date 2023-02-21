@@ -14,11 +14,13 @@ class AdminController extends Controller
             abort($response->code(), $response->message());
         }
 
-        $pages = [];
+        $menuPages = Page::select('*')
+            ->where('parent_id', '=', '0')
+            ->get();
 
         return view('admin.index', [
             'title' => 'Панель управления',
-            'pages' => $pages,
+            'menuPages' => $menuPages,
         ]);
     }
 }
