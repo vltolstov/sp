@@ -9,7 +9,6 @@
                      <div class="row">
                          <div class="col-lg-10">
                              <a href="{{route('admin')}}" class="admin-title">Панель управления</a>
-                             <a href="{{route('page.create')}}" class="create-new">Добавить страницу</a>
                          </div>
                          <div class="col-lg-2 admin-logout"><a href="{{route('logout')}}">Выход</a></div>
                      </div>
