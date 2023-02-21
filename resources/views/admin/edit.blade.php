@@ -96,7 +96,71 @@
                     <input type="text" name="introtext" placeholder="Интро" value="{{ $contentSet->introtext }}">
                 </div>
 
-                параметры
+                <label>Параметры</label>
+                <div class="add-params-button">(Добавить еще параметр)</div>
+                <div class="param-labels row">
+                    <div class="delCol">
+                    </div>
+                    <div class="col-lg-5">
+                        <p>Наименование</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <p>Значение</p>
+                    </div>
+                    <div class="col-lg-1">
+                        <p align="center">Приоритет</p>
+                    </div>
+                    <div class="col-lg-1">
+                        <p align="center">Скрыт</p>
+                    </div>
+                </div>
+                @if(isset($params))
+                    <div class="params">
+                        @foreach($params as $param)
+                            <div class="params-line row">
+                                <div class="del-button"><span class="icon-exit"></span></div>
+                                <input
+                                    class="col-lg-5"
+                                    type="text"
+                                    name="param-name-{{$loop->index + 1}}"
+                                    placeholder="Параметр"
+                                    value="{{$param['name']}}"
+                                >
+                                <input
+                                    class="col-lg-4"
+                                    type="text"
+                                    name="param-value-{{$loop->index + 1}}"
+                                    placeholder="Значение"
+                                    value="{{$param['value']}}"
+                                >
+                                <input
+                                    class="col-lg-1"
+                                    type="checkbox"
+                                    name="param-active-{{$loop->index + 1}}"
+                                    value="{{$param['active']}}"
+                                    @if($param['active']) checked @endif
+                                >
+                                <input
+                                    class="col-lg-1"
+                                    type="checkbox"
+                                    name="param-hide-{{$loop->index + 1}}"
+                                    value="{{$param['hide']}}"
+                                    @if($param['hide']) checked @endif
+                                >
+                            </div>
+                        @endforeach
+                    </div>
+                @else
+                <div class="params">
+                    <div class="params-line row">
+                        <div class="del-button"><span class="icon-exit"></span></div>
+                        <input class="col-lg-5" type="text" name="param-name-1" placeholder="Параметр" value="{{ old('param-name-1') }}">
+                        <input class="col-lg-4" type="text" name="param-value-1" placeholder="Значение" value="{{ old('param-value-1') }}">
+                        <input class="col-lg-1" type="checkbox" name="param-active-1" value="1">
+                        <input class="col-lg-1" type="checkbox" name="param-hide-1" value="1">
+                    </div>
+                </div>
+                @endif
 
                 <label>Контент</label>
                 <div class="cke-editor">

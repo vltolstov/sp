@@ -8,7 +8,7 @@
 
 let params = document.querySelector('.params');
 const addParamsButton = document.querySelector('.add-params-button');
-let index = 1;
+let index = params.childElementCount;
 
 function addParamInput() {
 

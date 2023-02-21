@@ -250,7 +250,8 @@ class PageController extends Controller
             $page->image->update($validationData);
         }
 
-        //ParametrSet::create($validationData);
+        $validationData['params'] = ParametrSetController::ParametrDataProcessing($request);
+        $page->parametrSet->update($validationData);
 
         return redirect()->route('page.edit', [$page->id]);
 
