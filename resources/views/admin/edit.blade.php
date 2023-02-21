@@ -62,8 +62,8 @@
                         @foreach($images as $image)
                             <div class="bord">
                                 <div class="del-button"><span class="icon-exit"></span></div>
-                                <img src="{{$image}}" width="150px">
-                                <input type="hidden" name="upload-images[]" value="{{$image}}">
+                                <img src="{{$image['main']}}" width="150px">
+                                <input type="hidden" name="upload-images[]" value="{{$image['main']}}">
                             </div>
                         @endforeach
                     </div>

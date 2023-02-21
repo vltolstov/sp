@@ -70,6 +70,11 @@ class PageController extends Controller
             $data['images'] = (array)$images;
         }
 
+        if($page->params){
+            $params = json_decode($page->params);
+            $data['params'] = (array)$params;
+        }
+
         if($page->category_id){
             return view('pages.category', $data);
         }
