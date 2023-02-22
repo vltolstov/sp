@@ -15,13 +15,19 @@ class ImageController extends Controller
     public static function imageDataProcessing($images, $name)
     {
 
+        $imageWidths = [200 => '200x150', 400 => '400x300', 800 => '800x600', 1200 => '1200x960', 2000 => '2000x1500'];
+
         $index = 1;
         $imageObj = [];
         $imageArr = [];
 
         if($images->input('upload-images')){
             foreach ($images->input('upload-images') as $item) {
-                $imageArr['image-' . $index] = $item;
+                $imageObj['main'] = $item;
+                foreach ($imageWidths as $key => $resolution){
+                    $imageObj[$resolution] = mb_substr($item, 0 , mb_strpos($item, '.')) . '-' . $resolution . '.jpg';
+                }
+                $imageArr['image-' . $index] = $imageObj;
                 $index++;
             }
         }
@@ -47,14 +53,13 @@ class ImageController extends Controller
                     $imageObj['main'] = $imageData['fullPath'];
                     Storage::putFileAs($imageData['uploadFolder'], $image, $imageData['name']);
 
-
-
-                    // вначале массив с нужными расширениями 200х150, 400х300, 800х600, 1200х960, 2000х1500
-                    // затем перебрать
-
-                    $resizeImage = Image::make($image)->resize(200,null, function ($constraint){$constraint->aspectRatio();});
-                    $imageObj['200x150'] = $uploadFolder . '/' . $fileName . '-200-150.jpg';
-                    Storage::put( $uploadFolder . '/' . $fileName . '-200-150.jpg', $resizeImage->encode('jpg'));
+                    foreach ($imageWidths as $width  => $resolution){
+                        $resizeImage = Image::make($image)->resize($width,null, function ($constraint){
+                            $constraint->aspectRatio();
+                        });
+                        $imageObj[$resolution] = $uploadFolder . '/' . $fileName . '-' . $resolution . '.jpg';
+                        Storage::put( $uploadFolder . '/' . $fileName . '-' . $resolution . '.jpg', $resizeImage->encode('jpg', 60));
+                    }
 
                     $imageArr['image-' . $index] = $imageObj;
                     $index++;
