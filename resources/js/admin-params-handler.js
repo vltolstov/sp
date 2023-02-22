@@ -8,7 +8,13 @@
 
 let params = document.querySelector('.params');
 const addParamsButton = document.querySelector('.add-params-button');
-let index = params.childElementCount;
+
+
+if(params){
+    let index = params.childElementCount;
+    addParamsButton.addEventListener('click', addParamInput);
+    params.addEventListener('click', delParam);
+}
 
 function addParamInput() {
 
@@ -56,9 +62,6 @@ function addParamInput() {
 
 }
 
-addParamsButton.addEventListener('click', addParamInput);
-
-
 function delParam(event) {
     let target = event.target;
 
@@ -68,4 +71,3 @@ function delParam(event) {
 
 }
 
-params.addEventListener('click', delParam);
