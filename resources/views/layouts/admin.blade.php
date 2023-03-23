@@ -30,8 +30,8 @@
 <script>
     tinymce.init({
         selector: 'textarea',
-        plugins: 'image autolink lists media table',
-        toolbar: 'styleselect bold italic alignleft aligncenter alignright a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
+        plugins: 'image autolink lists media table code',
+        toolbar: 'styleselect bold italic alignleft aligncenter alignright a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents code',
         toolbar_mode: 'floating',
         tinycomments_mode: 'embedded',
         language: 'ru',
