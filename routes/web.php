@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SiteMapController;
+use App\Http\Controllers\XmlUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ Route::get('/', [PageController::class, 'index'])
     ->name('index');
 
 Route::get('/sitemap.xml', [SiteMapController::class, 'sitemap']);
+Route::get('/upload', [XmlUploadController::class, 'index']);
 
 Route::get('/{slug}', [PageController::class, 'page']);
 
