@@ -34,12 +34,18 @@
     background-color: rgba(255,0,0,.05);
 }
 
-.bord input, .bord input {
+.bord input {
     border: none;
     font-size: 16px;
     line-height: 19px;
     width: 100%;
     background: none;
+}
+
+.bord select {
+    background: none;
+    font-size: 16px;
+    line-height: 19px;
 }
 
 .admin-button {
