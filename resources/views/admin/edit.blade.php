@@ -146,15 +146,21 @@
                                     class="col-lg-1"
                                     type="checkbox"
                                     name="param-active-{{$loop->index + 1}}"
-                                    value="{{$param['active']}}"
-                                    @if($param['active']) checked @endif
+                                    @if($param['active'])
+                                        value="1" checked
+                                    @else
+                                        value="1"
+                                    @endif
                                 >
                                 <input
                                     class="col-lg-1"
                                     type="checkbox"
                                     name="param-hide-{{$loop->index + 1}}"
-                                    value="{{$param['hide']}}"
-                                    @if($param['hide']) checked @endif
+                                    @if($param['hide'])
+                                        value="1" checked
+                                    @else
+                                        value="1"
+                                    @endif
                                 >
                             </div>
                         @endforeach
