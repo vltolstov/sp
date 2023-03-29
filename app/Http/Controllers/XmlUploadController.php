@@ -13,21 +13,37 @@ class XmlUploadController extends Controller
     public function index()
     {
         $productsList = self::prepare();
-        $goods = Page::all();
-        $ids = [];
 
+        $categoryIds = [];
+        $categories = Page::select('pages.id', 'parametr_sets.params')
+            ->join('categories', 'pages.id', '=', 'categories.page_id')
+            ->join('parametr_sets', 'pages.id', '=', 'parametr_sets.page_id')
+            ->get();
+        foreach ($categories as $category){
+            if($category->params != null){
+                $cid = json_decode($category->params);
+                $categoryIds += [
+                    $cid[0]->value => $category->id
+                ];
+            }
+        }
+
+        $goods = Page::all();
+        $goodIds = [];
         foreach ($goods as $good) {
             if($good->parametrSet->params != null){
                 $cid = json_decode($good->parametrSet->params);
-                $ids[] = $cid[0]->value;
+                $goodIds += [
+                    $cid[0]->value => $good->id
+                ];
             }
         }
 
         foreach ($productsList as $product) {
-            if(in_array($product['product_id'], $ids)){
-                self::update($product);
+            if(array_key_exists($product['product_id'], $goodIds)){
+                self::update($product, $goodIds[$product['product_id']], $categoryIds);
             } else {
-                self::add($product);
+                self::add($product, $categoryIds);
             }
         }
     }
@@ -88,10 +104,58 @@ class XmlUploadController extends Controller
     public function add($product)
     {
         //добавить
+        var_dump('добавленяем', $product);
     }
 
-    public function update($product)
+    public function update($product, $id, $categoryIds)
     {
-        //обновить
+
+        $data = [
+            'page_id' => $id,
+            'title' => Str::limit($product['name'], 70, ''),
+            'description' => $product['name'],
+            'keywords' => $product['name'],
+            'introtext' => $product['name'],
+        ];
+
+        $page = Page::find($id);
+
+        $page->name = Str::limit($product['name'], 50, '');
+        $page->active = 1;
+        $page->page_type_id = 1;
+        $page->seoSet->update($data);
+        $page->contentSet->update($data);
+
+        $paramArr[] = [
+            'name' => '1cid',
+            'value' => $product['product_id'],
+            'active' => false,
+            'hide' => true,
+        ];
+        $paramArr[] = [
+            'name' => 'Минимальное количество',
+            'value' => $product['minimum_quantity'],
+            'active' => false,
+            'hide' => false,
+        ];
+        foreach ($product['prices'] as $key => $value){
+            $paramArr[] = [
+                'name' => $key,
+                'value' => $value,
+                'active' => false,
+                'hide' => true,
+            ];
+        }
+        $data['params'] = json_encode($paramArr);
+        $page->parametrSet->update($data);
+
+        if(array_key_exists($product['category_id'], $categoryIds)){
+            $page->parent_id = $categoryIds[$product['category_id']];
+        } else {
+            $page->parent_id = 92;
+        }
+
+        $page->save();
+
     }
 }
