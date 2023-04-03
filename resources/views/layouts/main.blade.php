@@ -35,8 +35,25 @@
 </head>
 <body>
 
-@section('test-layout')
-@show
+<div class="wrapper">
+
+    @include('.elements.header')
+    @include('.elements.top-menu')
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                @include('.elements.sidebar')
+            </div>
+            <div class="col-lg-8">
+                @section('content')
+                @show
+            </div>
+        </div>
+    </div>
+</div>
+
+@include('.elements.footer')
 
 @vite('resources/js/app.js')
 

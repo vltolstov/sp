@@ -65,6 +65,13 @@ class PageController extends Controller
             'params' => $page->params,
         ];
 
+        $categoriesId = Category::select('page_id')
+        ->get();
+        $data['categories'] = Page::where('parent_id', $page->page_id)
+            ->whereIn('id', $categoriesId)
+            ->orderBy('id', 'asc')
+            ->get();
+
         if($page->image){
             $images = json_decode($page->image);
             $data['images'] = (array)$images;
