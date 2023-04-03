@@ -46,6 +46,9 @@ class XmlUploadController extends Controller
                 self::add($product, $categoryIds);
             }
         }
+
+        return 'ok';
+
     }
 
     public function prepare()
@@ -101,10 +104,58 @@ class XmlUploadController extends Controller
 
     }
 
-    public function add($product)
+    public function add($product, $categoryIds)
     {
-        //добавить
-        var_dump('добавленяем', $product);
+
+        $data = [
+            'name' => Str::limit($product['name'], 50, ''),
+            'page_type_id' => 1,
+            'active' => 1,
+            'urn' => Str::slug($product['name'], '-') . '-' .$product['product_id'],
+            'title' => Str::limit($product['name'], 70, ''),
+            'description' => Str::limit($product['name'], 160, ''),
+            'keywords' => $product['name'],
+            'introtext' => $product['name'],
+            'content' => null,
+            'image' => null,
+        ];
+
+        $paramArr[] = [
+            'name' => '1cid',
+            'value' => $product['product_id'],
+            'active' => false,
+            'hide' => true,
+        ];
+        $paramArr[] = [
+            'name' => 'Минимальное количество' . ', ' . $product['product_unit'],
+            'value' => $product['minimum_quantity'],
+            'active' => false,
+            'hide' => false,
+        ];
+        foreach ($product['prices'] as $key => $value){
+            $paramArr[] = [
+                'name' => $key,
+                'value' => $value,
+                'active' => false,
+                'hide' => true,
+            ];
+        }
+        $data['params'] = json_encode($paramArr);
+
+        if(array_key_exists($product['category_id'], $categoryIds)){
+            $data['parent_id'] = $categoryIds[$product['category_id']];
+        } else {
+            $data['parent_id'] = 92;
+        }
+
+        $page = Page::create($data);
+        $data['page_id'] = $page->id;
+        $page->slug()->create($data);
+        $page->image()->create($data);
+        $page->seoSet()->create($data);
+        $page->parametrSet()->create($data);
+        $page->contentSet()->create($data);
+
     }
 
     public function update($product, $id, $categoryIds)
@@ -133,7 +184,7 @@ class XmlUploadController extends Controller
             'hide' => true,
         ];
         $paramArr[] = [
-            'name' => 'Минимальное количество',
+            'name' => 'Минимальное количество' . ', ' . $product['product_unit'],
             'value' => $product['minimum_quantity'],
             'active' => false,
             'hide' => false,
