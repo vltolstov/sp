@@ -55,6 +55,7 @@ class PageController extends Controller
         if($page == null) return abort(404);
 
         $data = [
+            'id' => $page->id,
             'name' => $page->name,
             'title' => $page->title,
             'description' => $page->description,
@@ -71,6 +72,18 @@ class PageController extends Controller
             ->whereIn('id', $categoriesId)
             ->orderBy('id', 'asc')
             ->get();
+        if (!isset($data['categories'][0])){
+            $data['categories'] = null;
+        }
+
+        $data['products'] = Page::where('parent_id', $page->page_id)
+            ->whereNotIn('id', $categoriesId)
+            ->orderBy('id', 'asc')
+            ->get();
+        if (!isset($data['products'][0])){
+            $data['products'] = null;
+        }
+
 
         if($page->image){
             $images = json_decode($page->image);
@@ -81,6 +94,8 @@ class PageController extends Controller
             $params = json_decode($page->params);
             $data['params'] = (array)$params;
         }
+
+        $data['menuItems'] = MenuController::generateMenu();
 
         if($page->category_id){
             return view('pages.category', $data);

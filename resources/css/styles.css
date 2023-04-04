@@ -59,15 +59,15 @@
     }
     .sidebar {
         margin: 30px 30px 30px 0px;
-        padding: 30px 0px;
+        padding: 30px 00px;
         border-radius: 15px;
         background: #f3f3f3;
     }
     .main-menu {
-        padding: 0px 20px;
+        padding: 0px 40px;
     }
     .main-menu li {
-        padding: 0px 0px 0px 20px;
+        padding: 0px 0px 0px 10px;
         list-style: none;
     }
     .main-menu a {
