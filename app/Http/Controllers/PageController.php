@@ -20,6 +20,8 @@ class PageController extends Controller
     public function index()
     {
 
+        //переписать на $page = Page::find(1);
+
         $page = Page::join('seo_sets', 'pages.id','=','seo_sets.page_id')
             ->join('content_sets', 'pages.id','=','content_sets.page_id')
             ->join('images', 'pages.id','=','images.page_id')
@@ -28,33 +30,6 @@ class PageController extends Controller
             ->first();
 
         return view('index', [
-            'name' => $page->name,
-            'title' => $page->title,
-            'description' => $page->description,
-            'introtext' => $page->introtext,
-            'urn' => $page->urn,
-            'keywords' => $page->keywords,
-            'content' => $page->content,
-        ]);
-
-    }
-
-    public function page($slug)
-    {
-
-        $page = Page::join('slugs','pages.id','=','slugs.page_id')
-            ->join('seo_sets', 'pages.id','=','seo_sets.page_id')
-            ->join('content_sets', 'pages.id','=','content_sets.page_id')
-            ->join('images', 'pages.id','=','images.page_id')
-            ->join('parametr_sets', 'pages.id','=','parametr_sets.page_id')
-            ->leftJoin('categories', 'pages.id', '=', 'categories.page_id')
-            ->select('*','categories.id as category_id')
-            ->where('urn', $slug)
-            ->first();
-
-        if($page == null) return abort(404);
-
-        $data = [
             'id' => $page->id,
             'name' => $page->name,
             'title' => $page->title,
@@ -63,12 +38,55 @@ class PageController extends Controller
             'urn' => $page->urn,
             'keywords' => $page->keywords,
             'content' => $page->content,
+            'menuItems' => MenuController::generateMenu(),
+        ]);
+
+    }
+
+    public function page($slug)
+    {
+
+        $page = DB::table('pages')
+            ->join('slugs','pages.id','=','slugs.page_id')
+            ->join('seo_sets', 'pages.id','=','seo_sets.page_id')
+            ->join('content_sets', 'pages.id','=','content_sets.page_id')
+            ->join('parametr_sets', 'pages.id','=','parametr_sets.page_id')
+            ->join('images', 'pages.id','=','images.page_id')
+            ->leftJoin('categories', 'pages.id', '=', 'categories.page_id')
+            ->where('urn', $slug)
+            ->select('pages.*',
+                'slugs.urn',
+                'seo_sets.title',
+                'seo_sets.description',
+                'seo_sets.keywords',
+                'content_sets.introtext',
+                'content_sets.content',
+                'parametr_sets.params',
+                'images.image',
+                'categories.id as category_id',
+            )
+            ->first();
+
+        if($page == null) return abort(404);
+
+        $data = [
+            'id' => $page->id,
+            'parent_id' => $page->parent_id,
+            'name' => $page->name,
+            'title' => $page->title,
+            'description' => $page->description,
+            'introtext' => $page->introtext,
+            'urn' => $page->urn,
+            'keywords' => $page->keywords,
+            'content' => $page->content,
             'params' => $page->params,
+            'images' => $page->image,
         ];
+
 
         $categoriesId = Category::select('page_id')
         ->get();
-        $data['categories'] = Page::where('parent_id', $page->page_id)
+        $data['categories'] = Page::where('parent_id', $page->id)
             ->whereIn('id', $categoriesId)
             ->orderBy('id', 'asc')
             ->get();
@@ -76,7 +94,7 @@ class PageController extends Controller
             $data['categories'] = null;
         }
 
-        $data['products'] = Page::where('parent_id', $page->page_id)
+        $data['products'] = Page::where('parent_id', $page->id)
             ->whereNotIn('id', $categoriesId)
             ->orderBy('id', 'asc')
             ->get();

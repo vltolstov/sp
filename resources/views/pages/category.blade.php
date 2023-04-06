@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content-block">
-{{--        @include('.elements.breadcrumbs')--}}
+        @include('.elements.breadcrumbs')
         <div class="content-header">
             <h1>{{$title}}</h1>
         </div>
@@ -28,7 +28,7 @@
         <div class="row">
             @foreach($products as $product)
                 <div class="col-lg-12">
-                    <a href="#" class="product-item" style="background-image: url('/images/test-1000x750.png')">
+                    <a href="{{$product->slug['urn']}}" class="product-item" style="background-image: url('/images/test-1000x750.png')">
                         <p class="product-name">{{$product->seoSet['title']}}</p>
                         <p class="product-price">00000 руб</p>
                     </a>
