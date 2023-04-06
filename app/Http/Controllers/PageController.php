@@ -20,24 +20,18 @@ class PageController extends Controller
     public function index()
     {
 
-        //переписать на $page = Page::find(1);
-
-        $page = Page::join('seo_sets', 'pages.id','=','seo_sets.page_id')
-            ->join('content_sets', 'pages.id','=','content_sets.page_id')
-            ->join('images', 'pages.id','=','images.page_id')
-            ->join('parametr_sets', 'pages.id','=','parametr_sets.page_id')
-            ->select('*')
-            ->first();
+        $page = Page::find(1);
 
         return view('index', [
             'id' => $page->id,
+            'parent_id' => $page->parent_id,
             'name' => $page->name,
-            'title' => $page->title,
-            'description' => $page->description,
-            'introtext' => $page->introtext,
-            'urn' => $page->urn,
-            'keywords' => $page->keywords,
-            'content' => $page->content,
+            'title' => $page->seoset->title,
+            'description' => $page->seoset->description,
+            'keywords' => $page->seoset->keywords,
+            'content' => $page->contentset->content,
+            'introtext' => $page->contentset->introtext,
+            'urn' => $page->slug->urn,
             'menuItems' => MenuController::generateMenu(),
         ]);
 
