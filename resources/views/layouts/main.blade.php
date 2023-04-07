@@ -23,7 +23,7 @@
             <meta property="og:image:width" content="800">
             <meta property="og:image:height" content="600">
             <link rel="image_src" href="{{$baseUrl}}{{$image['800x600']}}">
-            @break()
+            @break
         @endforeach
     @endif
 
