@@ -53,6 +53,7 @@ class ImageController extends Controller
                     $imageObj['main'] = $imageData['fullPath'];
                     Storage::putFileAs($imageData['uploadFolder'], $image, $imageData['name']);
 
+                    // переписать геренацию картинок в правильное разрешение учитывая соотношение сторон
                     foreach ($imageWidths as $width  => $resolution){
                         $resizeImage = Image::make($image)->resize($width,null, function ($constraint){
                             $constraint->aspectRatio();

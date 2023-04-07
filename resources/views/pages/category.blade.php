@@ -15,9 +15,18 @@
             <div class="row">
                 @foreach($categories as $category)
                     <div class="col-lg-4">
-                        <a href="/{{$category->slug['urn']}}" class="category-item" style="background-image: url('/images/test-1000x750.png')">
-                            <p class="category-name">{{$category['name']}}</p>
-                        </a>
+                        @if(isset($category->images))
+                            @foreach($category->images as $image)
+                                <a href="/{{$category->slug['urn']}}" class="category-item" style="background-image: url('{{$image['200x150']}}')">
+                                    <p class="category-name">{{$category['name']}}</p>
+                                </a>
+                                @break
+                            @endforeach
+                        @else
+                            <a href="/{{$category->slug['urn']}}" class="category-item" style="background-image: url('/images/test-1000x750.png')">
+                                <p class="category-name">{{$category['name']}}</p>
+                            </a>
+                        @endif
                     </div>
                 @endforeach
             </div>

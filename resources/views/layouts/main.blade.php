@@ -18,10 +18,13 @@
     <meta property="og:url" content= "{{$baseUrl}}/{{$urn}}">
 
     @if(isset($images))
-        <meta property="og:image" content="{{$baseUrl}}{{$images['1000x750']}}">
-        <meta property="og:image:width" content="1000">
-        <meta property="og:image:height" content="750">
-        <link rel="image_src" href="{{$baseUrl}}{{$images['1000x750']}}">
+        @foreach($images as $image)
+            <meta property="og:image" content="{{$baseUrl}}{{$image['800x600']}}">
+            <meta property="og:image:width" content="800">
+            <meta property="og:image:height" content="600">
+            <link rel="image_src" href="{{$baseUrl}}{{$image['800x600']}}">
+            @break()
+        @endforeach
     @endif
 
     @vite('resources/css/app.css')

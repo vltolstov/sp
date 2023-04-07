@@ -73,38 +73,33 @@ class PageController extends Controller
             'urn' => $page->urn,
             'keywords' => $page->keywords,
             'content' => $page->content,
-            'params' => $page->params,
-            'images' => $page->image,
+            'params' => json_decode($page->params, true),
+            'images' => json_decode($page->image, true),
         ];
 
-
-        $categoriesId = Category::select('page_id')
-        ->get();
-        $data['categories'] = Page::where('parent_id', $page->id)
-            ->whereIn('id', $categoriesId)
+        $data['categories'] = Page::join('slugs', 'pages.id','=','slugs.page_id')
+            ->join('images', 'pages.id','=','images.page_id')
+            ->join('categories', 'pages.id', '=', 'categories.page_id')
+            ->select('pages.*', 'slugs.urn', 'images.image as images')
+            ->where('parent_id', $page->id)
             ->orderBy('id', 'asc')
             ->get();
         if (!isset($data['categories'][0])){
             $data['categories'] = null;
+        } else {
+            foreach ($data['categories'] as $category){
+                $category['images'] = json_decode($category->images, true);
+            }
         }
 
+        $categoriesId = Category::select('page_id')
+            ->get();
         $data['products'] = Page::where('parent_id', $page->id)
             ->whereNotIn('id', $categoriesId)
             ->orderBy('id', 'asc')
             ->get();
         if (!isset($data['products'][0])){
             $data['products'] = null;
-        }
-
-
-        if($page->image){
-            $images = json_decode($page->image);
-            $data['images'] = (array)$images;
-        }
-
-        if($page->params){
-            $params = json_decode($page->params);
-            $data['params'] = (array)$params;
         }
 
         $data['menuItems'] = MenuController::generateMenu();
