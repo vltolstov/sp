@@ -94,12 +94,24 @@ class PageController extends Controller
 
         $categoriesId = Category::select('page_id')
             ->get();
-        $data['products'] = Page::where('parent_id', $page->id)
-            ->whereNotIn('id', $categoriesId)
-            ->orderBy('id', 'asc')
+        $data['products'] = Page::join('slugs', 'pages.id','=','slugs.page_id')
+            ->join('images', 'pages.id','=','images.page_id')
+            ->join('seo_sets', 'pages.id','=','seo_sets.page_id')
+            ->select('pages.*', 'slugs.urn','seo_sets.title', 'images.image as images')
+            ->where('parent_id', $page->id)
+            ->orderBy('name', 'asc')
             ->get();
+//        $data['products'] = Page::where('parent_id', $page->id)
+//            ->whereNotIn('id', $categoriesId)
+//            ->orderBy('id', 'asc')
+//            ->get();
+
         if (!isset($data['products'][0])){
             $data['products'] = null;
+        } else {
+            foreach ($data['products'] as $product){
+                $product['images'] = json_decode($product->images, true);
+            }
         }
 
         $data['menuItems'] = MenuController::generateMenu();
@@ -204,7 +216,7 @@ class PageController extends Controller
 
         $pages = Page::select('pages.id', 'pages.name')
             ->where('parent_id', '=', $page->id)
-            ->orderBy('pages.id', 'ASC')
+            ->orderBy('pages.name', 'ASC')
             ->get();
 
         $pageTypes = PageType::select('*')
