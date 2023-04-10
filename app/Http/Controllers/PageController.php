@@ -92,8 +92,6 @@ class PageController extends Controller
             }
         }
 
-        $categoriesId = Category::select('page_id')
-            ->get();
         $data['products'] = Page::join('slugs', 'pages.id','=','slugs.page_id')
             ->join('images', 'pages.id','=','images.page_id')
             ->join('seo_sets', 'pages.id','=','seo_sets.page_id')
@@ -101,10 +99,6 @@ class PageController extends Controller
             ->where('parent_id', $page->id)
             ->orderBy('name', 'asc')
             ->get();
-//        $data['products'] = Page::where('parent_id', $page->id)
-//            ->whereNotIn('id', $categoriesId)
-//            ->orderBy('id', 'asc')
-//            ->get();
 
         if (!isset($data['products'][0])){
             $data['products'] = null;
