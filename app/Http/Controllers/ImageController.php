@@ -15,7 +15,7 @@ class ImageController extends Controller
     public static function imageDataProcessing($images, $name)
     {
 
-        $imageWidths = [200 => '200x150', 400 => '400x300', 800 => '800x600', 1200 => '1200x960', 2000 => '2000x1500'];
+        $imageWidths = [2000 => '2000x1500', 1200 => '1200x960', 800 => '800x600', 400 => '400x300', 200 => '200x150'];
 
         $index = 1;
         $imageObj = [];
@@ -44,6 +44,10 @@ class ImageController extends Controller
                     $fileExtension = $image->getClientOriginalExtension();
                     $uploadFolder = '/img/' . $name;
 
+                    $imageSizes = getimagesize($image);
+                    $originalWidth = $imageSizes[0];
+                    $originalHeight = $imageSizes[1];
+
                     $imageData = [
                         'name' => $fileName . '.' . $fileExtension,
                         'uploadFolder' => $uploadFolder,
@@ -53,9 +57,17 @@ class ImageController extends Controller
                     $imageObj['main'] = $imageData['fullPath'];
                     Storage::putFileAs($imageData['uploadFolder'], $image, $imageData['name']);
 
-                    // переписать геренацию картинок в правильное разрешение учитывая соотношение сторон
+                    $resizeImage = '';
+                    if($originalWidth > $originalHeight) {
+                        $newWidth = round($originalHeight / 3 * 4, 0);
+                        $resizeImage = Image::make($image)->crop($newWidth, $originalHeight, round(($originalWidth - $newWidth) / 2, 0), 0);
+                    } else {
+                        $newHeight = round($originalWidth / 4 * 3, 0);
+                        $resizeImage = Image::make($image)->crop($originalWidth, $newHeight, 0, round(($originalHeight - $newHeight) / 2, 0 ));
+                    }
+
                     foreach ($imageWidths as $width  => $resolution){
-                        $resizeImage = Image::make($image)->resize($width,null, function ($constraint){
+                        $resizeImage->resize($width,null, function ($constraint){
                             $constraint->aspectRatio();
                         });
                         $imageObj[$resolution] = $uploadFolder . '/' . $fileName . '-' . $resolution . '.jpg';
