@@ -95,8 +95,10 @@ class PageController extends Controller
         $data['products'] = Page::join('slugs', 'pages.id','=','slugs.page_id')
             ->join('images', 'pages.id','=','images.page_id')
             ->join('seo_sets', 'pages.id','=','seo_sets.page_id')
+            ->leftjoin('categories', 'pages.id', '=', 'categories.page_id')
             ->select('pages.*', 'slugs.urn','seo_sets.title', 'images.image as images')
             ->where('parent_id', $page->id)
+            ->whereNull('categories.id')
             ->orderBy('name', 'asc')
             ->get();
 
