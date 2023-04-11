@@ -217,6 +217,45 @@
     .content a:visited, .content a:link, .content a:active {
         color: #000000;
     }
+    .main-info-flex {
+        display: flex;
+        align-items: stretch;
+    }
+    .info-column-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .params-wrap {
+        border-top: 1px solid #f1f1f1;
+    }
+    .param-name {
+        font-family: FiraSansL;
+        font-size: 16px;
+        border-bottom: 1px solid #f1f1f1;
+        padding: 10px 0px;
+    }
+    .param-value {
+        text-align: right;
+        font-family: FiraSansL;
+        font-size: 16px;
+        border-bottom: 1px solid #f1f1f1;
+        padding: 10px 0px;
+    }
+    .request-button-wrap {
+        padding-top: 20px;
+    }
+    .request-button {
+        font-family: FiraSansL;
+        text-align: center;
+        background-color: #f3f3f3;
+        padding: 10px 0px;
+        cursor: pointer;
+    }
+    .request-button:hover {
+        background-color: #7f86b3;
+        color: #fff;
+    }
     .footer {
         height: 90px;
         margin-top: -90px;
