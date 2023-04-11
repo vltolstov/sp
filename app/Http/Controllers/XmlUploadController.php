@@ -109,7 +109,7 @@ class XmlUploadController extends Controller
 
         $data = [
             'name' => Str::limit($product['name'], 50, ''),
-            'page_type_id' => 1,
+            'page_type_id' => 2,
             'active' => 1,
             'urn' => Str::slug($product['name'], '-') . '-' .$product['product_id'],
             'title' => Str::limit($product['name'], 70, ''),
@@ -163,17 +163,13 @@ class XmlUploadController extends Controller
 
         $data = [
             'page_id' => $id,
-            'title' => Str::limit($product['name'], 70, ''),
-            'description' => $product['name'],
-            'keywords' => $product['name'],
-            'introtext' => $product['name'],
         ];
 
         $page = Page::find($id);
 
         $page->name = Str::limit($product['name'], 50, '');
         $page->active = 1;
-        $page->page_type_id = 1;
+        $page->page_type_id = 2;
         $page->seoSet->update($data);
         $page->contentSet->update($data);
 
