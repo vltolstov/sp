@@ -37,26 +37,27 @@
 
 </head>
 <body>
+<div class="body-flex">
+    <div class="wrapper">
 
-<div class="wrapper">
+        @include('.elements.header')
+        @include('.elements.top-menu')
 
-    @include('.elements.header')
-    @include('.elements.top-menu')
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                @include('.elements.sidebar')
-            </div>
-            <div class="col-lg-8">
-                @section('content')
-                @show
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    @include('.elements.sidebar')
+                </div>
+                <div class="col-lg-8">
+                    @section('content')
+                    @show
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-@include('.elements.footer')
+    @include('.elements.footer')
+</div>
 
 @vite('resources/js/app.js')
 

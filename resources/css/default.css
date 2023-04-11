@@ -20,10 +20,12 @@ body {
     padding: 0px;
     margin: 0px;
 }
-.wrapper {
-    min-height: 100%;
-    padding-bottom: 100px;
-    box-sizing: border-box;
+
+.body-flex {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 h1, h2, h3, h4, h5, h6 {
