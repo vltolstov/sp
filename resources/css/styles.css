@@ -246,22 +246,24 @@
         padding-top: 20px;
     }
     .request-button {
+        border: 1px solid #7f86b3;
+    }
+    .request-button a {
+        display: inline-block;
+        width: 100%;
         font-family: FiraSansL;
         text-align: center;
+        text-decoration: none;
         background-color: #7f86b3;
         color: #fff;
         padding: 10px 0px;
-        cursor: pointer;
-        border: 1px solid #7f86b3;
     }
-    .request-button:hover {
+    .request-button a:hover {
         color: #000;
         background-color: #f3f3f3;
-        border: 1px solid #7f86b3;
     }
     .footer {
         height: 90px;
-        /*margin-top: -90px;*/
         background-color: #393939;
     }
     .footer-text {
@@ -275,5 +277,8 @@
     }
     .footer-text a {
         color: #f3f3f3;
+    }
+    .send-form {
+        width: 500px;
     }
 }

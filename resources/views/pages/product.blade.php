@@ -42,7 +42,7 @@
             </div>
             <div class="request-button-wrap">
                 <div class="request-button">
-                    Отправить запрос по цене и наличию
+                    <a href="#modal-form" class="glightbox-form" data-glightbox="width: auto; height: auto;">Отправить запрос по цене и наличию</a>
                 </div>
             </div>
         </div>

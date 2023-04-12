@@ -59,6 +59,8 @@
     @include('.elements.footer')
 </div>
 
+@include('.elements.modal-form')
+
 @vite('resources/js/app.js')
 
 </body>

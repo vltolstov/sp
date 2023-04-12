@@ -5,3 +5,10 @@ const lightbox = glightbox({
     loop: true,
     autoplayVideos: true
 });
+
+const lightboxForm = glightbox({
+    selector: '.glightbox-form',
+    touchNavigation: true,
+    loop: false,
+    autoplayVideos: false
+});
