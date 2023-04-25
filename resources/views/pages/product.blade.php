@@ -18,7 +18,7 @@
                 @endforeach
             @else
                 <div class="main-image">
-                    <img src="/images/test-1000x750.png" alt="{{$name}}">
+                    <img src="/images/test-400x300.png" alt="{{$name}}">
                 </div>
             @endif
         </div>
@@ -42,7 +42,7 @@
             </div>
             <div class="request-button-wrap">
                 <div class="request-button">
-                    <a href="#modal-form" class="glightbox-form" data-glightbox="width: auto; height: auto;">Отправить запрос по цене и наличию</a>
+                    <p class="modal-form-button">Отправить запрос по цене и наличию</p>
                 </div>
             </div>
         </div>

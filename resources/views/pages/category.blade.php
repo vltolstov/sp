@@ -23,7 +23,7 @@
                                 @break
                             @endforeach
                         @else
-                            <a href="/{{$category->slug['urn']}}" class="category-item" style="background-image: url('/images/test-1000x750.png')">
+                            <a href="/{{$category->slug['urn']}}" class="category-item" style="background-image: url('/images/test-200x150.png')">
                                 <p class="category-name">{{$category['name']}}</p>
                             </a>
                         @endif
@@ -41,16 +41,16 @@
                         <div class="col-lg-12">
                             <a href="{{$product->slug['urn']}}" class="product-item" style="background-image: url('{{$image['200x150']}}')">
                                 <p class="product-name">{{$product->seoSet['title']}}</p>
-                                <p class="product-price">00000 руб</p>
+                                <p class="product-price">Подробнее</p>
                             </a>
                         </div>
                         @break
                     @endforeach
                 @else
                     <div class="col-lg-12">
-                        <a href="{{$product->slug['urn']}}" class="product-item" style="background-image: url('/images/test-1000x750.png')">
+                        <a href="{{$product->slug['urn']}}" class="product-item" style="background-image: url('/images/test-200x150.png')">
                             <p class="product-name">{{$product->seoSet['title']}}</p>
-                            <p class="product-price">00000 руб</p>
+                            <p class="product-price">Подробнее</p>
                         </a>
                     </div>
                 @endif

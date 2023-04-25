@@ -148,23 +148,24 @@
         background-position: 0px 0px;
         background-size: contain;
         background-repeat: no-repeat;
+        background-color: #f9f9f9;
         text-decoration: none;
         padding: 0px 0px 0px 210px;
         height: 130px;
         margin: 10px;
-        border: 1px solid #FFF;
-    }
-    .product-item:hover {
         border: 1px solid #f3f3f3;
         border-radius: 15px;
-        background-color: #fdfdfd;
+    }
+    .product-item:hover {
+        border: 1px solid #e7e7e7;
+        background-color: #f3f3f3;
     }
     .product-name {
         font-family:FiraSansL;
     }
     .product-price {
-        font-size: 24px;
-        font-family: FiraSansM;
+        font-size: 16px;
+        font-family: FiraSansL;
     }
     .product-price {
         padding: 0px 40px 0px 0px;
@@ -248,7 +249,7 @@
     .request-button {
         border: 1px solid #7f86b3;
     }
-    .request-button a {
+    .request-button p {
         display: inline-block;
         width: 100%;
         font-family: FiraSansL;
@@ -257,10 +258,18 @@
         background-color: #7f86b3;
         color: #fff;
         padding: 10px 0px;
+        cursor: pointer;
     }
-    .request-button a:hover {
+    .request-button p:hover {
         color: #000;
         background-color: #f3f3f3;
+    }
+    .modal-result {
+        border: 1px solid green;
+    }
+    .modal-result p {
+        background-color: #FFF;
+        color: #000;
     }
     .footer {
         height: 90px;
@@ -279,6 +288,9 @@
         color: #f3f3f3;
     }
     .send-form {
+        padding: 30px;
         width: 500px;
+        margin: 0 auto;
+        background: #fff;
     }
 }

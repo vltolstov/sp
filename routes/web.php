@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SiteMapController;
 use App\Http\Controllers\XmlUploadController;
+use App\Http\Controllers\ClientFormSendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,6 @@ Route::get('/sitemap.xml', [SiteMapController::class, 'sitemap']);
 Route::get('/upload', [XmlUploadController::class, 'index']);
 
 Route::get('/{slug}', [PageController::class, 'page']);
+Route::post('/sending', [ClientFormSendController::class, 'sending'])
+    ->name('form-sending');
 
