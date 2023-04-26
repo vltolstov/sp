@@ -53,7 +53,7 @@ class XmlUploadController extends Controller
 
     public function prepare()
     {
-        $file = Storage::path('/xml/products.xml');
+        $file = Storage::path('/public/xml/products.xml');
         $xml = simplexml_load_file($file);
         $products = [];
 

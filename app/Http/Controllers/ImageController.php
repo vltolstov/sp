@@ -55,7 +55,7 @@ class ImageController extends Controller
                     ];
 
                     $imageObj['main'] = $imageData['fullPath'];
-                    Storage::putFileAs($imageData['uploadFolder'], $image, $imageData['name']);
+                    Storage::putFileAs('/public' . $imageData['uploadFolder'], $image, $imageData['name']);
 
                     $resizeImage = '';
                     if($originalWidth > $originalHeight) {
@@ -71,7 +71,7 @@ class ImageController extends Controller
                             $constraint->aspectRatio();
                         });
                         $imageObj[$resolution] = $uploadFolder . '/' . $fileName . '-' . $resolution . '.jpg';
-                        Storage::put( $uploadFolder . '/' . $fileName . '-' . $resolution . '.jpg', $resizeImage->encode('jpg', 60));
+                        Storage::put( '/public' . $uploadFolder . '/' . $fileName . '-' . $resolution . '.jpg', $resizeImage->encode('jpg', 60));
                     }
 
                     $imageArr['image-' . $index] = $imageObj;
