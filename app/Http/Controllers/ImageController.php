@@ -15,7 +15,7 @@ class ImageController extends Controller
     public static function imageDataProcessing($images, $name)
     {
 
-        $imageWidths = [2000 => '2000x1500', 1200 => '1200x960', 800 => '800x600', 400 => '400x300', 200 => '200x150'];
+        $imageWidths = [2000 => '2000x1500', 1200 => '1200x900', 800 => '800x600', 400 => '400x300', 200 => '200x150'];
 
         $index = 1;
         $imageObj = [];
@@ -55,7 +55,7 @@ class ImageController extends Controller
                     ];
 
                     $imageObj['main'] = $imageData['fullPath'];
-                    Storage::putFileAs('/public' . $imageData['uploadFolder'], $image, $imageData['name']);
+                    Storage::putFileAs($imageData['uploadFolder'], $image, $imageData['name']);
 
                     $resizeImage = '';
                     if($originalWidth > $originalHeight) {
@@ -70,8 +70,9 @@ class ImageController extends Controller
                         $resizeImage->resize($width,null, function ($constraint){
                             $constraint->aspectRatio();
                         });
+                        $resizeImage->insert('images/watermark-' . $width . '.png', 'center');
                         $imageObj[$resolution] = $uploadFolder . '/' . $fileName . '-' . $resolution . '.jpg';
-                        Storage::put( '/public' . $uploadFolder . '/' . $fileName . '-' . $resolution . '.jpg', $resizeImage->encode('jpg', 60));
+                        Storage::put( $uploadFolder . '/' . $fileName . '-' . $resolution . '.jpg', $resizeImage->encode('jpg', 60));
                     }
 
                     $imageArr['image-' . $index] = $imageObj;
