@@ -20,12 +20,13 @@
 .icon-exit:before {
     display: inline-block;
     content: "\e901";
-    font-size: 22px;
-    margin: 4px 0px;
+    font-size: 30px;
+    margin: 10px 10px 0px 0px;
+    color:#000;
 }
 
 .icon-exit:hover {
-    color:red;
+    cursor: pointer;
 }
 
 .icon-edit:before {

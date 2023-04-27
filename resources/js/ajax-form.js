@@ -1,4 +1,5 @@
 let overlay = document.querySelector('.overlay');
+let exitButton = document.querySelector('.exit-button');
 let requestButton = document.querySelector('.request-button');
 
 function formActivate() {
@@ -83,4 +84,5 @@ overlay.addEventListener('click', function (event) {
         formActivate();
     }
 });
+exitButton.addEventListener('click', formActivate);
 document.querySelector('.ajaxFormButton').addEventListener('click', submitForm);

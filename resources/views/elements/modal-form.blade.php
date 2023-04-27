@@ -1,4 +1,7 @@
 <div class="overlay hide">
+    <div class="exit-button">
+        <span class="icon-exit"></span>
+    </div>
     <div class="form-wrap">
         <div class="send-form">
             <p class="form-header">Заполните форму</p>
