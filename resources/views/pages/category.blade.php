@@ -6,9 +6,11 @@
         <div class="content-header">
             <h1>{{$title}}</h1>
         </div>
-        <div class="content-intro">
-            <p>{{$introtext}}</p>
-        </div>
+        @isset($introtext)
+            <div class="content-intro">
+                <p>{{$introtext}}</p>
+            </div>
+        @endisset
     </div>
     @isset($categories)
         <div class="categories-block">
