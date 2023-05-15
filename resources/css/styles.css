@@ -12,8 +12,8 @@
     }
     .head-wrapper {
         background-color: #8bb36e;
-        background-image: url("/images/head-bg.jpg");
-        background-position: -200px 0px;
+        background-image: url("/images/head-mobile-bg.jpg");
+        background-position: 0px 0px;
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -192,6 +192,10 @@
         padding: 30px 30px 30px 30px;
         margin-bottom: 30px;
     }
+    .content a {
+        font-family: FiraSansL;
+        font-size: 14px;
+    }
     .content a:hover {
         color: #7f86b3 !important;
     }
@@ -286,6 +290,7 @@
         padding: 20px 0px 10px 0px;
     }
     .head-wrapper {
+        background-image: url("/images/head-bg.jpg");
         background-position: 0px 0px;
     }
     .head-tagline {

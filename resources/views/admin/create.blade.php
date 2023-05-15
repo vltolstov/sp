@@ -23,7 +23,7 @@
                     @error('name')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
-                    <input type="text" name="name" placeholder="Название" value="{{ old('name') }}" maxlength="50" class="name">
+                    <input type="text" name="name" placeholder="Название" value="{{ old('name') }}" maxlength="100" class="name">
                 </div>
                 <label>URI</label>
                 <div class="bord @error('urn') form-error @enderror">

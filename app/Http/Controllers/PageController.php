@@ -151,7 +151,7 @@ class PageController extends Controller
     {
 
         $validationData = $request->validate([
-            'name' => ['required','string','max:50'],
+            'name' => ['required','string','max:100'],
             'page_type_id' => 'present',
 
             'urn' => ['required', 'string', 'unique:slugs,urn'],
@@ -210,7 +210,8 @@ class PageController extends Controller
             ->where('page_id', '!=', $page->id)
             ->get();
 
-        $pages = Page::select('pages.id', 'pages.name')
+        $pages = Page::select('pages.id', 'pages.name', 'images.image')
+            ->join('images', 'pages.id','=','images.page_id')
             ->where('parent_id', '=', $page->id)
             ->orderBy('pages.name', 'ASC')
             ->get();
@@ -248,7 +249,7 @@ class PageController extends Controller
     {
 
         $validationData = $request->validate([
-            'name' => ['required', 'string', 'max:50'],
+            'name' => ['required', 'string', 'max:100'],
             'page_type_id' => 'present',
 
             'urn' => 'required',

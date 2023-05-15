@@ -108,7 +108,7 @@ class XmlUploadController extends Controller
     {
 
         $data = [
-            'name' => Str::limit($product['name'], 50, ''),
+            'name' => Str::limit($product['name'], 100, ''),
             'page_type_id' => 2,
             'active' => 1,
             'urn' => Str::slug($product['name'], '-') . '-' .$product['product_id'],

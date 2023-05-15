@@ -164,6 +164,22 @@
     padding: 30px 0px;
 }
 
+.admin-sub-menu ul li {
+    font-size: 14px;
+}
+.admin-sub-menu ul li a {
+    text-decoration: none;
+}
+
+.admin-sub-menu ul li a:hover {
+    text-decoration: underline;
+}
+
+.admin-sub-menu img {
+    width: 20px;
+    vertical-align: bottom;
+}
+
 .admin-menu-header {
     font-family: FiraSansM;
     font-size: 18px;

@@ -63,6 +63,7 @@
 </div>
 
 @include('.elements.modal-form')
+@include('.elements.counts')
 
 @vite('resources/js/app.js')
 

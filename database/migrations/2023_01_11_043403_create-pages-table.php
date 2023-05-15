@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50)->nullable();
+            $table->string('name', 100)->nullable();
             $table->smallInteger('page_type_id')->unsigned()->default(1);
             $table->integer('parent_id')->unsigned()->default(0);
             $table->timestamps();

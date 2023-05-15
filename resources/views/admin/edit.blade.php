@@ -22,7 +22,7 @@
             <div class="admin-form">
                 <label>Название</label>
                 <div class="bord">
-                    <input type="text" name="name" placeholder="Название" value="{{ $currentPage->name }}" maxlength="50">
+                    <input type="text" name="name" placeholder="Название" value="{{ $currentPage->name }}" maxlength="100">
                     <input type="hidden" name="urn" value="{{$slug}}">
                 </div>
                 <label>Тип страницы</label>
@@ -74,7 +74,7 @@
                         @foreach($images as $image)
                             <div class="bord">
                                 <div class="del-button"><span class="icon-exit"></span></div>
-                                <img src="{{$image['main']}}" width="150px">
+                                <img src="{{$image['200x150']}}" width="200px">
                                 <input type="hidden" name="upload-images[]" value="{{$image['main']}}">
                             </div>
                         @endforeach
