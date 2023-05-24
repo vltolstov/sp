@@ -86,14 +86,5 @@
       </Prices>
       <Prihod Doc="Поступление ТМЦ 0000000014 (28.03.23)" Data="28.03.23" Nomer="0000000014"/>
     </Element>
-    <Element Kod="00008502" Name="210D, 1000ПУ, 135 гр/м.п, цвет #227" Artikul="100 м" Ed="м.п." Kol="6452" Group="Оксфорд 210 PU (ПУ)" KodGroup="00006257">
-      <Prices>
-        <El_Price Kod="00007" Name="М. опт (до 50 т.)" Price="67.22" Val="Руб" Ed="м.п."/>
-        <El_Price Kod="00017" Name="Опт (50-800 т.)" Price="60.55" Val="Руб" Ed="м.п."/>
-        <El_Price Kod="00001" Name="Ср. опт (800-2000 т.)" Price="58.36" Val="Руб" Ed="м.п."/>
-        <El_Price Kod="00015" Name="Кр. опт (от 2 млн.)" Price="56.64" Val="Руб" Ed="м.п."/>
-      </Prices>
-      <Prihod Doc="Поступление ТМЦ 0000000034 (27.06.23)" Data="27.06.23" Nomer="0000000034"/>
-    </Element>
   </Elements>
 </Goods>

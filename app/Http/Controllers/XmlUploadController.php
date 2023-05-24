@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -13,6 +14,10 @@ class XmlUploadController extends Controller
     public function index()
     {
         $productsList = self::prepare();
+
+        DB::table('pages')
+            ->where('page_type_id', 2)
+            ->update(['active' => 0]);
 
         $categoryIds = [];
         $categories = Page::select('pages.id', 'parametr_sets.params')

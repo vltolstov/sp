@@ -22,7 +22,11 @@
                     @else
                         <img src="/images/default-200x150.png">
                     @endif
-                    <a href="/admin/page/{{$page->id}}/edit">{{$page->name}}</a>
+                    @if($page->active)
+                        <a href="/admin/page/{{$page->id}}/edit">{{$page->name}}</a>
+                        @else
+                        <a href="/admin/page/{{$page->id}}/edit"><s>{{$page->name}}</s></a>
+                    @endif
                 </li>
             @endforeach
         </ul>

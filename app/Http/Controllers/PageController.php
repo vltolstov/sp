@@ -82,6 +82,7 @@ class PageController extends Controller
             ->join('categories', 'pages.id', '=', 'categories.page_id')
             ->select('pages.*', 'slugs.urn', 'images.image as images')
             ->where('parent_id', $page->id)
+            ->where('active', 1)
             ->orderBy('name', 'asc')
             ->get();
         if (!isset($data['categories'][0])){
@@ -95,10 +96,10 @@ class PageController extends Controller
         $data['products'] = Page::join('slugs', 'pages.id','=','slugs.page_id')
             ->join('images', 'pages.id','=','images.page_id')
             ->join('seo_sets', 'pages.id','=','seo_sets.page_id')
-            ->leftjoin('categories', 'pages.id', '=', 'categories.page_id')
             ->select('pages.*', 'slugs.urn','seo_sets.title', 'images.image as images')
             ->where('parent_id', $page->id)
-            ->whereNull('categories.id')
+            ->where('page_type_id', 2)
+            ->where('active', 1)
             ->orderBy('name', 'asc')
             ->get();
 
@@ -210,7 +211,7 @@ class PageController extends Controller
             ->where('page_id', '!=', $page->id)
             ->get();
 
-        $pages = Page::select('pages.id', 'pages.name', 'images.image')
+        $pages = Page::select('pages.id', 'pages.name', 'pages.active', 'images.image')
             ->join('images', 'pages.id','=','images.page_id')
             ->where('parent_id', '=', $page->id)
             ->orderBy('pages.name', 'ASC')
