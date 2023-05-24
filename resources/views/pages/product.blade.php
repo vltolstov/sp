@@ -12,13 +12,13 @@
             @if(isset($images))
                 @foreach($images as $image)
                     <div class="main-image">
-                        <a href="{{$image['1200x900']}}" class="glightbox"><img src="{{$image['400x300']}}" alt="{{$name}}"></a>
+                        <a href="{{$image['1200x900']}}" class="glightbox"><img src="{{$image['400x300']}}" alt="{{$title}}"></a>
                     </div>
                     @break
                 @endforeach
             @else
                 <div class="main-image">
-                    <img src="/images/default-400x300.png" alt="{{$name}}">
+                    <img src="/images/default-400x300.png" alt=" ">
                 </div>
             @endif
         </div>
