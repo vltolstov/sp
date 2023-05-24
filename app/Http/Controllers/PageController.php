@@ -82,7 +82,7 @@ class PageController extends Controller
             ->join('categories', 'pages.id', '=', 'categories.page_id')
             ->select('pages.*', 'slugs.urn', 'images.image as images')
             ->where('parent_id', $page->id)
-            ->orderBy('id', 'asc')
+            ->orderBy('name', 'asc')
             ->get();
         if (!isset($data['categories'][0])){
             $data['categories'] = null;
