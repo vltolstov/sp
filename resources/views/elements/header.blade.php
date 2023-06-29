@@ -6,7 +6,7 @@
                     <p class="logo">{{$companyName}}</p>
                 </div>
                 <div class="col-lg-5 col-md-4 col-sm-5 col-xs-12">
-                    <h1 class="head-tagline">{{$companySlogan}}</h1>
+                    <p class="head-tagline">{{$companySlogan}}</p>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-4 col-xs-12">
                     <div class="head-contacts">
